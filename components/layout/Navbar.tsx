@@ -4,98 +4,9 @@ import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { type ReactNode, useEffect, useState } from "react";
-import { LanguageToggle } from "@/components/LanguageToggle";
+import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
-
-// ============================================
-// Animation Variants
-// ============================================
-const menuVariants = {
-	closed: {
-		opacity: 0,
-		y: "-100%",
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1] as const,
-			when: "afterChildren" as const,
-		},
-	},
-	open: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			ease: [0.22, 1, 0.36, 1] as const,
-			when: "beforeChildren" as const,
-			staggerChildren: 0.1,
-		},
-	},
-};
-
-const itemVariants = {
-	closed: { opacity: 0, y: 20 },
-	open: { opacity: 1, y: 0 },
-};
-
-// ============================================
-// MobileMenu Component
-// ============================================
-interface MobileMenuProps {
-	isOpen: boolean;
-	onClose: () => void;
-	navItems: { label: string; href: string }[];
-	phone: string;
-}
-
-function MobileMenu({ isOpen, onClose, navItems, phone }: MobileMenuProps) {
-	return (
-		<AnimatePresence>
-			{isOpen && (
-				<motion.div
-					variants={menuVariants}
-					initial="closed"
-					animate="open"
-					exit="closed"
-					className="fixed inset-0 bg-background z-999 flex flex-col justify-center items-center"
-				>
-					<div className="flex flex-col gap-8 text-center">
-						{navItems.map((item) => (
-							<motion.div key={item.href} variants={itemVariants}>
-								<a
-									href={item.href}
-									onClick={onClose}
-									className="text-4xl font-bold tracking-tighter hover:opacity-60 transition-opacity"
-								>
-									{item.label}
-								</a>
-							</motion.div>
-						))}
-
-						<motion.div variants={itemVariants}>
-							<button
-								type="button"
-								onClick={onClose}
-								className="text-4xl font-bold tracking-tighter hover:opacity-60 transition-opacity"
-							>
-								Consult
-							</button>
-						</motion.div>
-
-						<motion.div variants={itemVariants} className="mt-8">
-							<div className="font-mono text-sm tracking-widest opacity-60">{phone}</div>
-						</motion.div>
-					</div>
-
-					{/* Decorative Background Text */}
-					<div className="absolute bottom-12 left-12 opacity-5 pointer-events-none hidden md:block select-none">
-						<span className="text-[20vh] font-bold leading-none">KH EP</span>
-					</div>
-				</motion.div>
-			)}
-		</AnimatePresence>
-	);
-}
 
 // ============================================
 // NavLink Component
@@ -172,7 +83,7 @@ export function Navbar() {
 	// Navigation items
 	const navItems = [
 		{ label: "Work", href: "#work" },
-		{ label: "About", href: "#about" },
+		{ label: "About", href: "/about" },
 	];
 
 	const phone = "+251922451812";
@@ -241,12 +152,104 @@ export function Navbar() {
 			</nav>
 
 			{/* Mobile Menu */}
-			<MobileMenu
-				isOpen={isOpen}
-				onClose={() => setIsOpen(false)}
-				navItems={navItems}
-				phone={phone}
-			/>
+			<MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} navItems={navItems} />
 		</>
 	);
 }
+
+// ============================================
+// Animation Variants
+// ============================================
+const menuVariants = {
+	closed: {
+		opacity: 0,
+		y: "-100%",
+		transition: {
+			duration: 0.5,
+			ease: [0.22, 1, 0.36, 1] as const,
+			when: "afterChildren" as const,
+		},
+	},
+	open: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5,
+			ease: [0.22, 1, 0.36, 1] as const,
+			when: "beforeChildren" as const,
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	closed: { opacity: 0, y: 20 },
+	open: { opacity: 1, y: 0 },
+};
+
+// ============================================
+// MobileMenu Component
+// ============================================
+interface MobileMenuProps {
+	isOpen: boolean;
+	onClose: () => void;
+	navItems: { label: string; href: string }[];
+}
+
+function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
+	const phone = "+251922451812";
+
+	return (
+		<AnimatePresence>
+			{isOpen && (
+				<motion.div
+					variants={menuVariants}
+					initial="closed"
+					animate="open"
+					exit="closed"
+					className="fixed inset-0 bg-background z-999 flex flex-col justify-center items-center"
+				>
+					<div className="flex flex-col gap-8 text-center">
+						{navItems.map((item) => (
+							<motion.div key={item.href} variants={itemVariants}>
+								<a
+									href={item.href}
+									onClick={onClose}
+									className="text-4xl font-bold tracking-tighter hover:opacity-60 transition-opacity"
+								>
+									{item.label}
+								</a>
+							</motion.div>
+						))}
+
+						<motion.div variants={itemVariants}>
+							<Button variant="outline" onClick={onClose}>
+								Consult
+							</Button>
+						</motion.div>
+
+						{/* Separator */}
+						<motion.div variants={itemVariants} className="w-12 h-px bg-border mx-auto" />
+
+						<motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
+							<LanguageToggle />
+							<Link
+								href={`tel:${phone}`}
+								className="text-secondary flex items-center gap-2 text-sm font-mono tracking-widest"
+							>
+								<Phone size={16} />
+								{phone}
+							</Link>
+						</motion.div>
+					</div>
+
+					{/* Decorative Background Text */}
+					<div className="absolute bottom-12 left-12 opacity-5 pointer-events-none hidden md:block select-none">
+						<span className="text-[20vh] font-bold leading-none">KH EP</span>
+					</div>
+				</motion.div>
+			)}
+		</AnimatePresence>
+	);
+}
+
