@@ -44,14 +44,13 @@ export function Philosophy() {
 							</h3>
 							<div className="w-12 h-[2px] bg-foreground mb-8" />
 							<p className="text-lg text-muted-foreground leading-relaxed font-light mb-10">
-							    The name
+								The name
 								<span className="font-semibold block">
-									 &nbsp;'Ke Ha Eske Pe' (
-									<span className="font-amharic">ከሀ እስከ ፐ</span>)
+									&nbsp;'Ke Ha Eske Pe' (<span className="font-amharic">ከሀ እስከ ፐ</span>)
 								</span>
-								&nbsp;signifies the complete Amharic alphabet. It represents our core notion: bridging the gap between
-								design and construction to ensure your vision remains uncompromised from
-								the first letter to the last.
+								&nbsp;signifies the complete Amharic alphabet. It represents our core notion:
+								bridging the gap between design and construction to ensure your vision remains
+								uncompromised from the first letter to the last.
 							</p>
 
 							{/* Stats Grid */}
@@ -88,29 +87,23 @@ export function Philosophy() {
 									</h4>
 								</div>
 								<p className="text-muted-foreground leading-relaxed font-light">
-									In traditional projects, design and construction are often handled by
-									separate entities. This fragmentation frequently leads to
-									miscommunication, budget overruns, and undesired outputs that deviate
-									from the original intent.
+									In traditional projects, design and construction are often handled by separate
+									entities. This fragmentation frequently leads to miscommunication, budget
+									overruns, and undesired outputs that deviate from the original intent.
 								</p>
 							</div>
 
 							<div className="space-y-4">
 								<div className="flex items-center gap-2">
-									<HeartHandshake
-										size={28}
-										className="text-foreground"
-									/>
+									<HeartHandshake size={28} className="text-foreground" />
 									<h4 className="text-xl font-bold tracking-tight uppercase">
 										Single-Point Accountability
 									</h4>
-
 								</div>
 								<p className="text-muted-foreground leading-relaxed font-light">
-									We serve as your single contract point. By overseeing everything from
-									the initial design stage through heavy construction and final
-									furnishing, we eliminate friction and guarantee the quality of the
-									final result.
+									We serve as your single contract point. By overseeing everything from the initial
+									design stage through heavy construction and final furnishing, we eliminate
+									friction and guarantee the quality of the final result.
 								</p>
 							</div>
 						</motion.div>
@@ -132,10 +125,9 @@ export function Philosophy() {
 										</h4>
 									</div>
 									<p className="text-muted-foreground leading-relaxed font-light">
-										Our primary mission is to ensure that every stroke on the blueprint
-										is translated with absolute fidelity onto the physical site. We
-										don't just design; we deliver the reality exactly as it was
-										envisioned.
+										Our primary mission is to ensure that every stroke on the blueprint is
+										translated with absolute fidelity onto the physical site. We don't just design;
+										we deliver the reality exactly as it was envisioned.
 									</p>
 								</div>
 
@@ -161,7 +153,7 @@ export function Philosophy() {
 						/>
 					</div>
 				</div>
-			</div >
-		</section >
+			</div>
+		</section>
 	);
 }
