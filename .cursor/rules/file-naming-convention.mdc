@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+use kebab-case for file names - Example: my-file.tsx

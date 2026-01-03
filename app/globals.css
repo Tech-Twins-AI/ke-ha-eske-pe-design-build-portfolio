@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
+@theme {
+	/* === COLORS === */
+	--color-primary: #000000;
+	--color-primary-foreground: #ffffff;
+
+	--color-secondary: #888888;
+	--color-secondary-foreground: #000000;
+
+	--color-background: #ffffff;
+	--color-foreground: #000000;
+
+	--color-muted: #f5f5f5;
+	--color-muted-foreground: #737373;
+
+	--color-accent: #121212;
+	--color-accent-foreground: #ffffff;
+
+	--color-border: #e5e5e5;
+
+	/* === TYPOGRAPHY - Reference Next.js font variables === */
+	--font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
+	--font-amharic: var(--font-amharic), "Noto Sans Ethiopic", sans-serif;
 }
 
-@theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+/* ===== GRID BACKGROUND UTILITIES ===== */
+
+/* Base grid utility - works on light backgrounds (24px) */
+@utility bg-grid {
+	background-image:
+		linear-gradient(to right, #80808012 1px, transparent 1px),
+		linear-gradient(to bottom, #80808012 1px, transparent 1px);
+	background-size: 24px 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+/* Small grid (20px) */
+@utility bg-grid-sm {
+	background-image:
+		linear-gradient(to right, #80808012 1px, transparent 1px),
+		linear-gradient(to bottom, #80808012 1px, transparent 1px);
+	background-size: 20px 20px;
+}
+
+/* Large grid (40px) */
+@utility bg-grid-lg {
+	background-image:
+		linear-gradient(to right, #80808012 1px, transparent 1px),
+		linear-gradient(to bottom, #80808012 1px, transparent 1px);
+	background-size: 40px 40px;
+}
+
+/* Grid for dark backgrounds (white lines) */
+@utility bg-grid-light {
+	background-image:
+		linear-gradient(to right, #ffffff12 1px, transparent 1px),
+		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+	background-size: 24px 24px;
+}
+
+/* Small grid for dark backgrounds */
+@utility bg-grid-light-sm {
+	background-image:
+		linear-gradient(to right, #ffffff12 1px, transparent 1px),
+		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+	background-size: 20px 20px;
+}
+
+/* Large grid for dark backgrounds */
+@utility bg-grid-light-lg {
+	background-image:
+		linear-gradient(to right, #ffffff12 1px, transparent 1px),
+		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+	background-size: 40px 40px;
+}
+
+/* Base Styles */
+html {
+	scroll-behavior: smooth;
 }
 
 body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: var(--font-montserrat), "Montserrat", sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+	background-color: var(--color-primary);
+	color: var(--color-primary-foreground);
 }
