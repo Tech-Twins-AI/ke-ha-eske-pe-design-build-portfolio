@@ -24,9 +24,7 @@ export default function Home() {
 					<div className="relative h-48 border border-border overflow-hidden">
 						<div className="absolute inset-0 bg-grid-sm" />
 						<div className="relative z-10 flex items-center justify-center h-full">
-							<span className="bg-background px-3 py-1 text-sm font-medium">
-								bg-grid-sm (20px)
-							</span>
+							<span className="bg-background px-3 py-1 text-sm font-medium">bg-grid-sm (20px)</span>
 						</div>
 					</div>
 
@@ -34,9 +32,7 @@ export default function Home() {
 					<div className="relative h-48 border border-border overflow-hidden">
 						<div className="absolute inset-0 bg-grid-md" />
 						<div className="relative z-10 flex items-center justify-center h-full">
-							<span className="bg-background px-3 py-1 text-sm font-medium">
-								bg-grid-md (24px)
-							</span>
+							<span className="bg-background px-3 py-1 text-sm font-medium">bg-grid-md (24px)</span>
 						</div>
 					</div>
 
@@ -44,9 +40,7 @@ export default function Home() {
 					<div className="relative h-48 border border-border overflow-hidden">
 						<div className="absolute inset-0 bg-grid-lg" />
 						<div className="relative z-10 flex items-center justify-center h-full">
-							<span className="bg-background px-3 py-1 text-sm font-medium">
-								bg-grid-lg (40px)
-							</span>
+							<span className="bg-background px-3 py-1 text-sm font-medium">bg-grid-lg (40px)</span>
 						</div>
 					</div>
 				</div>

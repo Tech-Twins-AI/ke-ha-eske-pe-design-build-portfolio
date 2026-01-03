@@ -29,7 +29,6 @@
 	--grid-size-lg: 40px;
 }
 
-
 /* ===== GRID BACKGROUND UTILITIES ===== */
 
 /* 
@@ -39,18 +38,19 @@
 
 /* Grid for light backgrounds (dark lines) */
 @utility bg-grid-* {
-	background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+	background-image:
+		linear-gradient(to right, #80808012 1px, transparent 1px),
 		linear-gradient(to bottom, #80808012 1px, transparent 1px);
 	background-size: --value(--grid-size-*, [length]) --value(--grid-size-*, [length]);
 }
 
 /* Grid for dark backgrounds (white/light lines) */
 @utility bg-grid-light-* {
-	background-image: linear-gradient(to right, #ffffff12 1px, transparent 1px),
+	background-image:
+		linear-gradient(to right, #ffffff12 1px, transparent 1px),
 		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
 	background-size: --value(--grid-size-*, [length]) --value(--grid-size-*, [length]);
 }
-
 
 /* Base Styles */
 html {
