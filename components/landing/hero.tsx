@@ -27,9 +27,6 @@ export function Hero() {
 					<div className="absolute inset-0 bg-gradient-radial from-transparent to-black/60" />
 				</motion.div>
 
-				{/* Grid Overlay */}
-				<div className="absolute inset-0 bg-grid z-10" />
-
 				{/* Content */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -37,7 +34,7 @@ export function Hero() {
 					transition={{ duration: 0.8, ease: "easeOut" }}
 					className="z-10 text-center"
 				>
-					<div className="font-amharic text-secondary text-lg md:text-xl mb-1 tracking-widest opacity-60">
+					<div className="font-amharic text-secondary text-lg md:text-xl mb-1 tracking-widest">
 						ከሀ
 					</div>
 					<h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">THE BEGINNING</h1>

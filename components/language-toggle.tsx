@@ -22,7 +22,7 @@ export function LanguageToggle({ className }: LanguageToggleProps) {
 			variant="ghost"
 			size="sm"
 			onClick={handleToggle}
-			className={cn("flex items-center gap-2 text-secondary", className)}
+			className={cn("flex items-center gap-2", className)}
 		>
 			<Globe size={16} />
 			<span>{currentLanguage}</span>
