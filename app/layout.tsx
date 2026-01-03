@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {  Montserrat, Noto_Sans_Ethiopic } from "next/font/google";
+import { Montserrat, Noto_Sans_Ethiopic } from "next/font/google";
 import "./globals.css";
 import { Footer, Navbar } from "@/components/layout";
 
@@ -27,9 +27,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`${montserrat.variable} ${notoSansEthiopic.variable} antialiased`}
-			>
+			<body className={`${montserrat.variable} ${notoSansEthiopic.variable} antialiased`}>
 				<Navbar />
 				{children}
 				<Footer />
