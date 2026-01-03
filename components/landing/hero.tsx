@@ -30,7 +30,6 @@ export function Hero() {
 				{/* Grid Overlay */}
 				<div className="absolute inset-0 bg-grid z-10" />
 
-
 				{/* Content */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
