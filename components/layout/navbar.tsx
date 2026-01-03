@@ -91,7 +91,7 @@ export function Navbar() {
 	return (
 		<>
 			{/* Main Navigation Bar */}
-			<nav className="fixed w-full px-6 md:px-12 py-6 flex justify-between items-center z-1000 text-foreground  backdrop-blur-lg">
+			<nav className="fixed w-full px-6 md:px-12 py-4 flex justify-between items-center z-1000 text-foreground backdrop-blur-sm">
 				<Brand />
 
 				{/* Desktop Navigation */}
@@ -102,7 +102,7 @@ export function Navbar() {
 						</NavLink>
 					))}
 
-					<Button variant="primary" size="sm">
+					<Button variant="outline" size="sm">
 						Consult
 					</Button>
 

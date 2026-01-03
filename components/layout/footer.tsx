@@ -42,7 +42,7 @@ export function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="bg-accent text-accent-foreground py-16 px-6 md:px-12">
+		<footer className="bg-primary text-primary-foreground py-16 px-6 md:px-12">
 			<div className="max-w-4xl mx-auto flex flex-col items-center gap-10">
 				{/* Logo */}
 				<Brand variant="logo" />
@@ -54,7 +54,7 @@ export function Footer() {
 							href={social.href}
 							target={social.href.startsWith("http") ? "_blank" : undefined}
 							rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-							className="text-accent-foreground/60 hover:text-accent-foreground transition-colors"
+							className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
 							aria-label={social.label}
 						>
 							<social.icon size={20} />
@@ -67,10 +67,10 @@ export function Footer() {
 					<p className="text-sm font-bold tracking-widest uppercase">
 						KE HA ESKE PE © {currentYear}
 					</p>
-					<p className="text-xs tracking-widest text-accent-foreground/60 uppercase">
+					<p className="text-xs tracking-widest text-primary-foreground/60 uppercase">
 						Design and Build
 					</p>
-					<p className="text-xs tracking-widest text-accent-foreground/60 uppercase">
+					<p className="text-xs tracking-widest text-primary-foreground/60 uppercase">
 						Design in Addis Ababa. Built for Eternity.
 					</p>
 				</div>
