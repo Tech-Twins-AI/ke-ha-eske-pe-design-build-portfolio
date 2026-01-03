@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import buildBgUrl from "@/public/build-hero-bg.avif";
-import designBgUrl from "@/public/design-hero-bg.png";
+import buildBgUrl from "@/public/build-hero-bg.webp";
+import designBgUrl from "@/public/design-hero-bg.webp";
 
 export function Hero() {
 	return (
