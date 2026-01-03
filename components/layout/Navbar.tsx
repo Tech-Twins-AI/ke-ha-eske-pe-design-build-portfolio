@@ -4,6 +4,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { type ReactNode, useEffect, useState } from "react";
+import { Brand } from "@/components/brand";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -21,7 +22,6 @@ interface NavLinkProps {
 function NavLink({ href, children, className, onClick }: NavLinkProps) {
 	const baseStyles = "relative overflow-hidden py-1 font-bold uppercase text-xs tracking-[0.25em]";
 
-	// Use anchor for hash links, Link for internal routes
 	const isHashLink = href.startsWith("#");
 
 	const MotionLink = isHashLink ? motion.a : motion(Link);
@@ -80,7 +80,6 @@ export function Navbar() {
 		};
 	}, [isOpen]);
 
-	// Navigation items
 	const navItems = [
 		{ label: "Work", href: "#work" },
 		{ label: "About", href: "/about" },
@@ -92,32 +91,7 @@ export function Navbar() {
 		<>
 			{/* Main Navigation Bar */}
 			<nav className="fixed w-full px-6 md:px-12 py-6 flex justify-between items-center z-1000 text-foreground  backdrop-blur-lg">
-				{/* Logo & Brand */}
-				<Link href="/" className="flex items-center gap-3 md:gap-5">
-					{/* Logo Placeholder - Replace with actual logo */}
-					<div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden bg-primary text-primary-foreground shadow-sm border border-border flex items-center justify-center font-bold text-lg md:text-xl">
-						KH
-					</div>
-
-					<div className="flex flex-col gap-0">
-						<div className="flex items-baseline">
-							<span className="font-bold text-base md:text-xl tracking-[0.2em] whitespace-nowrap uppercase">
-								KE HA ESKE PE
-								<span className="font-light text-[8px] md:text-[11px] tracking-widest opacity-60 ml-2 border-l border-primary/20 pl-2">
-									DESIGN AND BUILD
-								</span>
-							</span>
-						</div>
-						<div className="flex items-baseline">
-							<span className="text-[10px] md:text-sm font-amharic opacity-80 font-medium whitespace-nowrap">
-								ከሀ እስከ ፐ
-								<span className="opacity-40 font-light text-[8px] md:text-[10px] ml-2 border-l border-primary/20 pl-2">
-									ንድፍ እና ግንባታ
-								</span>
-							</span>
-						</div>
-					</div>
-				</Link>
+				<Brand />
 
 				{/* Desktop Navigation */}
 				<div className="hidden md:flex items-center gap-10">
@@ -151,7 +125,6 @@ export function Navbar() {
 				</button>
 			</nav>
 
-			{/* Mobile Menu */}
 			<MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} navItems={navItems} />
 		</>
 	);
@@ -241,11 +214,6 @@ function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
 								{phone}
 							</Link>
 						</motion.div>
-					</div>
-
-					{/* Decorative Background Text */}
-					<div className="absolute bottom-12 left-12 opacity-5 pointer-events-none hidden md:block select-none">
-						<span className="text-[20vh] font-bold leading-none">KH EP</span>
 					</div>
 				</motion.div>
 			)}
