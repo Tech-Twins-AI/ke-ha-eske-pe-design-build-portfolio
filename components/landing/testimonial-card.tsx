@@ -47,9 +47,7 @@ export function TestimonialCard({
 					}}
 					style={{ overflow: "hidden" }}
 				>
-					<p className="text-lg leading-relaxed text-foreground font-light italic">
-						"{quote}"
-					</p>
+					<p className="text-lg leading-relaxed text-foreground font-light italic">"{quote}"</p>
 				</motion.div>
 
 				{/* Read More / Read Less Button */}
