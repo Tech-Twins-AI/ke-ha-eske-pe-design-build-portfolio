@@ -1,4 +1,3 @@
-import { CTA } from "@/components/landing";
 import { Footer, Navbar } from "@/components/layout";
 import { SanityLive } from "@/sanity/lib/live";
 
@@ -11,7 +10,6 @@ export default function MainLayout({
 		<div>
 			<Navbar />
 			{children}
-			<CTA />
 			<Footer />
 			<SanityLive />
 		</div>

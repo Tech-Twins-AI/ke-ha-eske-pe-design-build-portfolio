@@ -82,7 +82,7 @@ export function Navbar() {
 	}, [isOpen]);
 
 	const navItems = [
-		{ label: "Works", href: "#works" },
+		{ label: "Works", href: "/#works" },
 		{ label: "About", href: "/about" },
 	];
 

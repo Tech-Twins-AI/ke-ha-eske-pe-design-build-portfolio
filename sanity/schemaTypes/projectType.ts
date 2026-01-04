@@ -1,5 +1,6 @@
 // src/sanity/schemaTypes/projectType.ts
 import { defineField, defineType } from "sanity";
+import { PROJECT_CATEGORIES } from "@/lib/constants";
 
 export const projectType = defineType({
 	name: "project",
@@ -26,13 +27,10 @@ export const projectType = defineType({
 			title: "Category",
 			type: "string",
 			options: {
-				list: [
-					{ title: "Exterior Design", value: "exterior" },
-					{ title: "Interior Design", value: "interior" },
-					{ title: "Construction", value: "construction" },
-					{ title: "Finishing Work", value: "finishing" },
-					{ title: "Renovation", value: "renovation" },
-				],
+				list: PROJECT_CATEGORIES.map((cat) => ({
+					title: cat.label,
+					value: cat.id,
+				})),
 				layout: "radio",
 			},
 			validation: (rule) => rule.required(),
