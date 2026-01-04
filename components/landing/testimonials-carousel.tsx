@@ -28,7 +28,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.8 }}
-				className="text-center mb-16 md:mb-20"
+				className="text-center mb-16 md:mb-20 px-6 md:px-12"
 			>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-[0.3em] uppercase">
 					WHAT THEY SAY ABOUT US

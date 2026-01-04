@@ -20,7 +20,7 @@ export type Testimonial = {
   _updatedAt: string;
   _rev: string;
   name: string;
-  role: string;
+  role?: string;
   company?: string;
   quote: string;
   avatar?: {
@@ -63,6 +63,7 @@ export type Project = {
   slug: Slug;
   category: "exterior" | "interior" | "construction" | "finishing" | "renovation";
   location?: string;
+  area?: number;
   year?: number;
   clientName?: string;
   description?: string;
@@ -209,7 +210,7 @@ export declare const internalGroqTypeReferenceTo: unique symbol;
 export type TESTIMONIALS_QUERYResult = Array<{
   _id: string;
   name: string;
-  role: string;
+  role: string | null;
   company: string | null;
   quote: string;
   avatar: string | null;

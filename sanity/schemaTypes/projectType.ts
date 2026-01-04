@@ -43,6 +43,12 @@ export const projectType = defineType({
 			type: "string",
 		}),
 		defineField({
+			name: "area",
+			title: "Area (m²)",
+			type: "number",
+			validation: (rule) => rule.min(0),
+		}),
+		defineField({
 			name: "year",
 			title: "Year Completed",
 			type: "number",

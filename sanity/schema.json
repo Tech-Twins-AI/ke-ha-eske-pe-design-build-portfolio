@@ -46,7 +46,7 @@
         "value": {
           "type": "string"
         },
-        "optional": false
+        "optional": true
       },
       "company": {
         "type": "objectAttribute",
@@ -304,6 +304,13 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "area": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
         },
         "optional": true
       },
