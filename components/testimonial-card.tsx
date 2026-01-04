@@ -1,7 +1,7 @@
-"use client";
+// "use client";
 
 import { Quote } from "lucide-react";
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
 import Image from "next/image";
 import type { TESTIMONIALS_QUERYResult } from "@/sanity/types";
 
@@ -23,15 +23,15 @@ export function TestimonialCard({
 	avatar,
 }: TESTIMONIALS_QUERYResult[number]) {
 	return (
-		<motion.div className="relative p-8 md:p-10 border border-border bg-muted/30 flex flex-col h-full group transition-all duration-500 hover:bg-background hover:shadow-xl hover:shadow-foreground/5">
+		<div className="relative p-8 md:p-10 border border-border bg-muted/30 flex flex-col h-full group transition-all duration-500 hover:bg-background hover:shadow-xl hover:shadow-foreground/5">
 			{/* Background Quote Icon */}
-			<div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-10 transition-opacity">
+			<div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
 				<Quote size={80} strokeWidth={1} />
 			</div>
 
 			{/* Quote Content */}
 			<div className="mb-10 relative z-10">
-				<p className="text-lg leading-relaxed text-foreground font-light italic line-clamp-6">
+				<p className="text-lg leading-relaxed text-foreground font-light italic line-clamp-7">
 					"{quote}"
 				</p>
 			</div>
@@ -60,6 +60,6 @@ export function TestimonialCard({
 					<p className="text-xs uppercase text-secondary tracking-widest">{company}</p>
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	);
 }

@@ -184,7 +184,7 @@ function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
 					initial="closed"
 					animate="open"
 					exit="closed"
-					className="fixed inset-0 bg-background z-50 flex flex-col justify-center items-center"
+					className="fixed inset-0 bg-background z-40 flex flex-col justify-center items-center"
 				>
 					<div className="flex flex-col gap-8 text-center">
 						{navItems.map((item) => (

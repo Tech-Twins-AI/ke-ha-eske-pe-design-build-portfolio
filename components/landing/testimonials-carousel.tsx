@@ -61,7 +61,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 					{testimonials.map((testimony) => (
 						<motion.div
 							key={testimony._id}
-							className="w-[320px] md:w-[400px] shrink-0"
+							className="max-w-md shrink-0"
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
