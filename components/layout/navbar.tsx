@@ -6,7 +6,6 @@ import Link from "next/link";
 import { type ReactNode, useEffect, useState } from "react";
 import { Brand } from "@/components/brand";
 import { LanguageToggle } from "@/components/language-toggle";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -103,12 +102,11 @@ export function Navbar() {
 						</NavLink>
 					))}
 
-					<Button variant="outline" size="sm">
+					<Button variant="outline" size="default">
 						Consult
 					</Button>
 
 					<div className="flex items-center gap-1 border-l border-primary/10 pl-6 ml-2">
-						<ThemeToggle />
 						<LanguageToggle className="text-muted-foreground" />
 						<Link
 							href={`tel:${phone}`}
@@ -212,7 +210,6 @@ function MobileMenu({ isOpen, onClose, navItems }: MobileMenuProps) {
 
 						<motion.div variants={itemVariants} className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-4">
-								<ThemeToggle />
 								<LanguageToggle className="text-muted-foreground" />
 							</div>
 							<Link

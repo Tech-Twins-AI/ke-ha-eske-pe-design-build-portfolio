@@ -108,6 +108,7 @@ export function Works() {
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
+					transition={{ duration: 0.8 }}
 					className="text-center mb-16"
 				>
 					<h2 className="text-3xl md:text-5xl font-bold tracking-[0.3em] mb-12 uppercase">
@@ -121,11 +122,10 @@ export function Works() {
 								key={cat.id}
 								type="button"
 								onClick={() => setActiveFilter(cat.id)}
-								className={`relative py-2 text-sm tracking-[0.2em] uppercase font-bold transition-all duration-300 ${
-									activeFilter === cat.id
+								className={`relative py-2 text-sm tracking-[0.2em] uppercase font-bold transition-all duration-300 ${activeFilter === cat.id
 										? "text-foreground"
 										: "text-secondary hover:text-foreground"
-								}`}
+									}`}
 							>
 								{cat.label}
 								{activeFilter === cat.id && (
@@ -140,7 +140,14 @@ export function Works() {
 				</motion.div>
 
 				{/* Projects Grid */}
-				<motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+				<motion.div
+					layout
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+					transition={{ duration: 0.5, ease: "easeOut" }}
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
+				>
 					<AnimatePresence mode="popLayout">
 						{filteredProjects.map((project) => (
 							<ProjectCard key={project.id} project={project} />

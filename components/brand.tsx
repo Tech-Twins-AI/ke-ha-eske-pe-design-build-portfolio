@@ -1,23 +1,30 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import logo from "@/public/logo.svg";
 
 type BrandVariant = "logo" | "logo-with-text" | "full";
 
 interface BrandProps {
 	variant?: BrandVariant;
 	className?: string;
+	logoSize?: number;
 }
 
-export function Brand({ variant = "full", className }: BrandProps) {
+export function Brand({ variant = "full", className, logoSize = 64 }: BrandProps) {
 	const showName = variant !== "logo";
 	const showTagline = variant === "full";
 
 	return (
 		<Link href="/" className={cn("flex items-center gap-3 md:gap-5", className)}>
 			{/* Logo */}
-			<div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden bg-primary text-primary-foreground shadow-sm border border-border flex items-center justify-center font-bold text-lg md:text-xl">
-				KH
-			</div>
+			<Image
+				src={logo}
+				alt="Logo"
+				width={logoSize}
+				height={logoSize}
+				className="bg-background rounded-full"
+			/>
 
 			{/* Text content */}
 			{showName && (

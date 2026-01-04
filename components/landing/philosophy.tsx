@@ -80,7 +80,7 @@ export function Philosophy() {
 							<div className="space-y-4">
 								<div className="flex items-center gap-2">
 									<Cog size={28} className="text-foreground" />
-									<h4 className="text-base md:text-xl font-bold tracking-tight uppercase whitespace-nowrap">
+									<h4 className="text-base md:text-xl font-bold tracking-tight uppercase">
 										Bridging The Fragmentation
 									</h4>
 								</div>
@@ -94,7 +94,7 @@ export function Philosophy() {
 							<div className="space-y-4">
 								<div className="flex items-center gap-2">
 									<HeartHandshake size={28} className="text-foreground" />
-									<h4 className="text-base md:text-xl font-bold tracking-tight uppercase whitespace-nowrap">
+									<h4 className="text-base md:text-xl font-bold tracking-tight uppercase">
 										Single-Point Accountability
 									</h4>
 								</div>
@@ -118,7 +118,7 @@ export function Philosophy() {
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-4">
 										<Hammer size={28} className="text-foreground" />
-										<h4 className="text-base md:text-xl font-bold tracking-tight uppercase whitespace-nowrap">
+										<h4 className="text-base md:text-xl font-bold tracking-tight uppercase">
 											From Paper To Ground
 										</h4>
 									</div>
