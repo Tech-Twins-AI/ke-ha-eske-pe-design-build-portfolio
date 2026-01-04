@@ -16,7 +16,6 @@ export const testimonialType = defineType({
 			title: "Role / Title",
 			type: "string",
 			description: "e.g., Owner, CEO, Project Manager",
-			validation: (rule) => rule.required(),
 		}),
 		defineField({
 			name: "company",
