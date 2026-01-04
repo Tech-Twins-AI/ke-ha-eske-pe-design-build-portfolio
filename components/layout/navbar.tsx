@@ -92,7 +92,7 @@ export function Navbar() {
 		<>
 			{/* Main Navigation Bar */}
 			<nav className="fixed w-full px-6 md:px-12 py-4 flex justify-between items-center z-50 text-foreground bg-background/80 backdrop-blur-md">
-				<Brand />
+				<Brand className="flex-wrap" />
 
 				{/* Desktop Navigation */}
 				<div className="hidden md:flex items-center gap-10">

@@ -56,8 +56,8 @@ export function TestimonialCard({
 				{/* Name & Role */}
 				<div>
 					<h4 className="font-bold text-sm tracking-widest uppercase mb-1">{name}</h4>
-					<p className="text-xs uppercase text-secondary tracking-[0.2em] mb-1">{role}</p>
-					<p className="text-xs uppercase text-secondary tracking-[0.2em]">{company}</p>
+					<p className="text-xs uppercase text-secondary tracking-widest mb-1">{role}</p>
+					<p className="text-xs uppercase text-secondary tracking-widest">{company}</p>
 				</div>
 			</div>
 		</motion.div>
