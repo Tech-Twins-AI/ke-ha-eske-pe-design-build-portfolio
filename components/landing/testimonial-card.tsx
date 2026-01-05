@@ -1,6 +1,6 @@
 "use client";
 
-import { Quote } from "lucide-react";
+import { ChevronDown, ChevronUp, Quote } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -16,7 +16,7 @@ function getInitials(name: string): string {
 }
 
 // Threshold for showing "Read more" (characters)
-const QUOTE_THRESHOLD = 200;
+const QUOTE_THRESHOLD = 150;
 
 export function TestimonialCard({
 	name,
@@ -29,42 +29,59 @@ export function TestimonialCard({
 	const isLongQuote = quote.length > QUOTE_THRESHOLD;
 
 	return (
-		<div className="relative p-8 md:p-10 border border-border bg-muted/30 flex flex-col group transition-all duration-500 hover:bg-background hover:shadow-xl hover:shadow-foreground/5">
+		<div className="relative p-10 border border-foreground/5 bg-muted/30 flex flex-col group transition-all duration-500 hover:bg-background hover:shadow-xl hover:shadow-foreground/5">
 			{/* Background Quote Icon */}
-			<div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+			<div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-500">
 				<Quote size={80} strokeWidth={1} />
 			</div>
 
-			{/* Quote Content with smooth height animation */}
-			<div className="mb-6 relative z-10">
+			{/* Quote Content */}
+			<div className="mb-10 relative z-10 grow">
+				{/* Decorative Dots */}
+				<div className="flex gap-1 mb-6">
+					{[...Array(5)].map((_) => (
+						<div key={`testimonial-dot-${Math.random()}`} className="w-1 h-1 bg-foreground rounded-full" />
+					))}
+				</div>
+
+				{/* Quote Text with Motion Animation */}
 				<motion.div
 					initial={false}
 					animate={{
-						height: isExpanded ? "auto" : "7.5rem", // ~5 lines at text-lg
+						height: isExpanded ? "auto" : "7.5rem",
 					}}
 					transition={{
 						height: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
 					}}
 					style={{ overflow: "hidden" }}
 				>
-					<p className="text-lg leading-relaxed text-foreground font-light italic">"{quote}"</p>
+					<p className="text-lg leading-relaxed text-foreground font-light italic">
+						"{quote}"
+					</p>
 				</motion.div>
 
 				{/* Read More / Read Less Button */}
 				{isLongQuote && (
-					<motion.button
+					<button
 						type="button"
 						onClick={() => setIsExpanded(!isExpanded)}
-						className="mt-3 text-xs uppercase tracking-widest text-secondary hover:text-foreground transition-colors duration-300 underline underline-offset-4"
-						whileTap={{ scale: 0.95 }}
+						className="mt-4 flex items-center gap-2 text-2xs tracking-wide-sm uppercase font-bold text-secondary hover:text-foreground transition-colors duration-300"
 					>
-						{isExpanded ? "Read less" : "Read more"}
-					</motion.button>
+						{isExpanded ? (
+							<>
+								Read less <ChevronUp size={12} />
+							</>
+						) : (
+							<>
+								Read more <ChevronDown size={12} />
+							</>
+						)}
+					</button>
 				)}
 			</div>
 
 			{/* Author Info */}
-			<div className="mt-auto pt-8 border-t border-border flex items-center gap-4">
+			<div className="mt-auto pt-8 border-t border-foreground/5 flex items-center gap-4">
 				{/* Avatar */}
 				<div className="w-12 h-12 rounded-full overflow-hidden bg-primary text-primary-foreground flex items-center justify-center shrink-0">
 					{avatar ? (
@@ -83,8 +100,12 @@ export function TestimonialCard({
 				{/* Name & Role */}
 				<div>
 					<h4 className="font-bold text-sm tracking-widest uppercase mb-1">{name}</h4>
-					<p className="text-xs uppercase text-secondary tracking-widest mb-1">{role}</p>
-					<p className="text-xs uppercase text-secondary tracking-widest">{company}</p>
+					<p className="text-label uppercase tracking-wide-sm text-secondary font-mono mb-1">
+						{role}
+					</p>
+					{company && (
+						<p className="text-label uppercase tracking-wide-sm text-secondary">{company}</p>
+					)}
 				</div>
 			</div>
 		</div>

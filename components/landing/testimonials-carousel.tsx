@@ -36,12 +36,28 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 				<div className="w-12 h-[2px] bg-foreground mx-auto mt-8" />
 			</motion.div>
 
-			<div className="relative">
+			{/* Mobile: Vertical Stack */}
+			<div className="md:hidden flex flex-col gap-6 px-6">
+				{testimonials.map((testimony) => (
+					<motion.div
+						key={testimony._id}
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.6 }}
+					>
+						<TestimonialCard {...testimony} />
+					</motion.div>
+				))}
+			</div>
+
+			{/* Desktop: Horizontal Carousel */}
+			<div className="hidden md:block relative">
 				{/* Left Gradient */}
-				<div className="absolute left-0 top-0 bottom-0 w-6 md:w-12 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+				<div className="absolute left-0 top-0 bottom-0 w-12 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
 
 				{/* Right Gradient */}
-				<div className="absolute right-0 top-0 bottom-0 w-6 md:w-12 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+				<div className="absolute right-0 top-0 bottom-0 w-12 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
 
 				{/* Carousel */}
 				<motion.div
@@ -56,7 +72,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 						timeConstant: 500,
 					}}
 					transition={{ duration: 0.2, ease: "easeInOut" }}
-					className={`flex gap-6 will-change-transform cursor-grab active:cursor-grabbing ${testimonials.length > 3 ? "" : "justify-center"}`}
+					className={`flex gap-6 items-start will-change-transform cursor-grab active:cursor-grabbing ${testimonials.length > 3 ? "" : "justify-center"}`}
 				>
 					{testimonials.map((testimony) => (
 						<motion.div
@@ -71,20 +87,20 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 						</motion.div>
 					))}
 				</motion.div>
-			</div>
 
-			{/* drag hint */}
-			<motion.div
-				initial={{ opacity: 0, y: 10 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-				transition={{ duration: 0.6, delay: 0.2 }}
-				className="text-center text-sm text-secondary mt-8 tracking-widest uppercase flex items-center justify-center gap-2"
-			>
-				<ArrowLeft size={14} />
-				<span>Drag to explore</span>
-				<ArrowRight size={14} />
-			</motion.div>
+				{/* Drag hint - Desktop only */}
+				<motion.div
+					initial={{ opacity: 0, y: 10 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6, delay: 0.2 }}
+					className="text-center text-sm text-secondary mt-8 tracking-widest uppercase flex items-center justify-center gap-2"
+				>
+					<ArrowLeft size={14} />
+					<span>Drag to explore</span>
+					<ArrowRight size={14} />
+				</motion.div>
+			</div>
 
 			{/* Bottom Divider */}
 			<motion.div
