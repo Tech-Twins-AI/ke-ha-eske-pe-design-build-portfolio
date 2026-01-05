@@ -3,6 +3,7 @@
 import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Brand } from "@/components/brand";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,8 @@ import { Button } from "../ui";
 export function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const pathname = usePathname();
+	const isHome = pathname === "/";
 
 	// Scroll detection
 	useEffect(() => {
@@ -58,11 +61,11 @@ export function Navbar() {
 					<Brand />
 				</motion.div>
 
-				{/* Desktop Navigation - white when unscrolled (right side over dark background) */}
+				{/* Desktop Navigation - white only on home page when unscrolled */}
 				<div
 					className={cn(
 						"hidden lg:flex items-center gap-10 text-xs tracking-wide-md uppercase font-bold transition-colors duration-500",
-						scrolled ? "text-foreground" : "text-primary-foreground",
+						isHome && !scrolled ? "text-primary-foreground" : "text-foreground",
 					)}
 				>
 					{navItems.map((item) => (
@@ -76,9 +79,9 @@ export function Navbar() {
 							variant="outline"
 							size="sm"
 							className={cn(
-								scrolled
-									? "border-foreground text-foreground hover:bg-foreground hover:text-background"
-									: "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent",
+								isHome && !scrolled
+									? "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent"
+									: "border-foreground text-foreground hover:bg-foreground hover:text-background",
 							)}
 						>
 							Consult
@@ -88,10 +91,10 @@ export function Navbar() {
 					<div
 						className={cn(
 							"flex items-center gap-6 border-l pl-6 ml-2",
-							scrolled ? "border-foreground/10" : "border-primary-foreground/20",
+							isHome && !scrolled ? "border-primary-foreground/20" : "border-foreground/10",
 						)}
 					>
-						<LanguageToggle className={scrolled ? "" : "text-primary-foreground"} />
+						<LanguageToggle className={isHome && !scrolled ? "text-primary-foreground" : ""} />
 						<Link
 							href={`tel:${phone}`}
 							className="hidden xl:flex font-mono opacity-60 items-center gap-2 text-sm tracking-normal"
