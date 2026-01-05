@@ -40,7 +40,10 @@ export function TestimonialCard({
 				{/* Decorative Dots */}
 				<div className="flex gap-1 mb-6">
 					{[...Array(5)].map((_) => (
-						<div key={`testimonial-dot-${Math.random()}`} className="w-1 h-1 bg-foreground rounded-full" />
+						<div
+							key={`testimonial-dot-${Math.random()}`}
+							className="w-1 h-1 bg-foreground rounded-full"
+						/>
 					))}
 				</div>
 
@@ -55,9 +58,7 @@ export function TestimonialCard({
 					}}
 					style={{ overflow: "hidden" }}
 				>
-					<p className="text-lg leading-relaxed text-foreground font-light italic">
-						"{quote}"
-					</p>
+					<p className="text-lg leading-relaxed text-foreground font-light italic">"{quote}"</p>
 				</motion.div>
 
 				{/* Read More / Read Less Button */}
