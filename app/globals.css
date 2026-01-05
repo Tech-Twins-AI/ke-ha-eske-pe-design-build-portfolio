@@ -5,6 +5,9 @@
 	--color-primary: #000000;
 	--color-primary-foreground: #ffffff;
 
+	--color-kh-black: #121212;
+	--color-kh-gray: #888888;
+
 	--color-secondary: #888888;
 	--color-secondary-foreground: #000000;
 
@@ -20,75 +23,129 @@
 	--color-border: #e5e5e5;
 
 	/* === TYPOGRAPHY === */
-	--font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
+	--font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--font-amharic: var(--font-amharic), "Noto Sans Ethiopic", sans-serif;
 }
 
 /* ===== GRID BACKGROUND UTILITIES ===== */
 
-/* Base grid utility - works on light backgrounds (24px) */
 @utility bg-grid {
 	background-image:
-		linear-gradient(to right, #80808012 1px, transparent 1px),
-		linear-gradient(to bottom, #80808012 1px, transparent 1px);
-	background-size: 24px 24px;
+		linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+	background-size: 40px 40px;
 }
 
 /* Small grid (20px) */
 @utility bg-grid-sm {
 	background-image:
-		linear-gradient(to right, #80808012 1px, transparent 1px),
-		linear-gradient(to bottom, #80808012 1px, transparent 1px);
+		linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 	background-size: 20px 20px;
 }
 
 /* Large grid (40px) */
 @utility bg-grid-lg {
 	background-image:
-		linear-gradient(to right, #80808012 1px, transparent 1px),
-		linear-gradient(to bottom, #80808012 1px, transparent 1px);
+		linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 	background-size: 40px 40px;
 }
 
 /* Grid for dark backgrounds (white lines) */
 @utility bg-grid-light {
 	background-image:
-		linear-gradient(to right, #ffffff12 1px, transparent 1px),
-		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
-	background-size: 24px 24px;
+		linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+	background-size: 20px 20px;
 }
 
 /* Small grid for dark backgrounds */
 @utility bg-grid-light-sm {
 	background-image:
-		linear-gradient(to right, #ffffff12 1px, transparent 1px),
-		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+		linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
 	background-size: 20px 20px;
 }
 
 /* Large grid for dark backgrounds */
 @utility bg-grid-light-lg {
 	background-image:
-		linear-gradient(to right, #ffffff12 1px, transparent 1px),
-		linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+		linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
 	background-size: 40px 40px;
 }
 
-/* Base Styles */
+/* ===== SHIMMER ANIMATION ===== */
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@utility animate-shimmer {
+	animation: shimmer 2.5s infinite;
+}
+
+/* ===== TICKER ANIMATION ===== */
+@keyframes ticker {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@utility animate-ticker {
+	animation: ticker 30s linear infinite;
+}
+
+/* ===== BASE STYLES ===== */
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 80px;
+	overflow-x: hidden;
 }
 
 body {
-	font-family: var(--font-montserrat), "Montserrat", sans-serif;
+	font-family: var(--font-sans);
 	background-color: var(--color-background);
 	color: var(--color-foreground);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 
 /* Selection */
 ::selection {
 	background-color: var(--color-primary);
 	color: var(--color-primary-foreground);
+}
+
+/* ===== FONT UTILITIES ===== */
+.font-amharic {
+	font-family: var(--font-amharic);
+	line-height: 1.6;
 }

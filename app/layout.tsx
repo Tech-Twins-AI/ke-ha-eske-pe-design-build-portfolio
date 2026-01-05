@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat, Noto_Sans_Ethiopic } from "next/font/google";
+import { Noto_Sans_Ethiopic } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
-	variable: "--font-montserrat",
-	subsets: ["latin"],
-	weight: ["300", "400", "500", "600", "700", "800"],
-});
-
+// Amharic font - Noto Sans Ethiopic
 const notoSansEthiopic = Noto_Sans_Ethiopic({
 	variable: "--font-amharic",
 	subsets: ["ethiopic"],
@@ -26,9 +21,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${montserrat.variable} ${notoSansEthiopic.variable} antialiased`}>
-				{children}
-			</body>
+			<body className={`${notoSansEthiopic.variable} antialiased`}>{children}</body>
 		</html>
 	);
 }
