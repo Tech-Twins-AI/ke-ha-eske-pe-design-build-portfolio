@@ -26,7 +26,7 @@ export function Brand({ variant = "full", className, logoSize = 48 }: BrandProps
 					height={logoSize}
 					className={cn(
 						"object-cover mix-blend-multiply transition-transform duration-500 hover:scale-105",
-						!logoSize && "w-12 h-12 md:w-16 md:h-16"
+						!logoSize && "w-12 h-12 md:w-16 md:h-16",
 					)}
 				/>
 			</div>

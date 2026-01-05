@@ -1,6 +1,6 @@
 "use client";
 
-import { Globe, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -50,13 +50,10 @@ export function Navbar() {
 					"fixed w-full px-6 md:px-12 flex justify-between items-center z-50 transition-all duration-500 ease-in-out text-foreground",
 					scrolled
 						? "py-4 bg-background/35 backdrop-blur-xl border-b border-foreground/5 shadow-sm"
-						: "py-6 md:py-8 bg-transparent"
+						: "py-6 md:py-8 bg-transparent",
 				)}
 			>
-				<motion.div
-					initial={{ opacity: 0, x: -20 }}
-					animate={{ opacity: 1, x: 0 }}
-				>
+				<motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
 					<Brand />
 				</motion.div>
 
@@ -121,11 +118,7 @@ function NavLink({ href, children, onClick }: NavLinkProps) {
 	const Component = isHashLink ? "a" : Link;
 
 	return (
-		<Component
-			href={href}
-			onClick={onClick}
-			className="relative group overflow-hidden py-1"
-		>
+		<Component href={href} onClick={onClick} className="relative group overflow-hidden py-1">
 			<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
 				{children}
 			</span>
@@ -206,10 +199,7 @@ function MobileMenu({ isOpen, onClose, navItems, phone }: MobileMenuProps) {
 								onClick={onClose}
 								className="text-4xl font-bold tracking-tighter hover:text-secondary transition-colors"
 							>
-								<Button
-									variant="outline"
-									onClick={onClose}
-								>
+								<Button variant="outline" onClick={onClose}>
 									Consult
 								</Button>
 							</Link>
