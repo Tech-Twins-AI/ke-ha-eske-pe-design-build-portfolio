@@ -3,7 +3,7 @@
 import { Calendar, MapPin, Maximize2, User } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { CTA } from "@/components/landing";
+import { CTA } from "@/components/landing/cta";
 import type { PROJECT_QUERYResult } from "@/sanity/types";
 
 interface ProjectContentProps {
