@@ -39,11 +39,9 @@ export function TestimonialCard({
 			<div className="mb-10 relative z-10 grow">
 				{/* Decorative Dots */}
 				<div className="flex gap-1 mb-6">
-					{[...Array(5)].map((_) => (
-						<div
-							key={`testimonial-dot-${Math.random()}`}
-							className="w-1 h-1 bg-foreground rounded-full"
-						/>
+					{[...Array(5)].map((_, i) => (
+						// biome-ignore lint/suspicious/noArrayIndexKey: ok
+						<div key={`testimonial-dot-${i}`} className="w-1 h-1 bg-foreground rounded-full" />
 					))}
 				</div>
 
@@ -100,13 +98,11 @@ export function TestimonialCard({
 
 				{/* Name & Role */}
 				<div>
-					<h4 className="font-bold text-sm tracking-widest uppercase mb-1">{name}</h4>
-					<p className="text-label uppercase tracking-wide-sm text-secondary font-mono mb-1">
-						{role}
-					</p>
+					<h4 className="font-semibold text-sm tracking-widest uppercase mb-1">{name}</h4>
 					{company && (
 						<p className="text-label uppercase tracking-wide-sm text-secondary">{company}</p>
 					)}
+					<p className="text-label uppercase tracking-wide-sm text-secondary mb-1">{role}</p>
 				</div>
 			</div>
 		</div>
