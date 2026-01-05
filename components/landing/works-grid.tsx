@@ -41,7 +41,7 @@ export function WorksGrid({ projects }: WorksGridProps) {
 								key={cat.id}
 								type="button"
 								onClick={() => setActiveFilter(cat.id)}
-								className={`relative py-2 text-sm tracking-[0.2em] uppercase font-semibold transition-all duration-300 ${
+								className={`relative py-2 text-sm tracking-wide-sm uppercase font-semibold transition-all duration-300 ${
 									activeFilter === cat.id
 										? "text-foreground"
 										: "text-secondary hover:text-foreground"

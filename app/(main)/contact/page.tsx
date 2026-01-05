@@ -53,7 +53,7 @@ export default function ContactPage() {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ delay: 0.2 }}
 					>
-						<p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-6 font-semibold">
+						<p className="text-sm tracking-wide-sm uppercase text-muted-foreground mb-6 font-semibold">
 							Get In Touch
 						</p>
 						<h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-12">
@@ -72,7 +72,7 @@ export default function ContactPage() {
 										<item.icon size={20} />
 									</div>
 									<div>
-										<p className="text-sm tracking-[0.2em] uppercase text-muted-foreground font-semibold mb-2">
+										<p className="text-sm tracking-wide-sm uppercase text-muted-foreground font-semibold mb-2">
 											{item.label}
 										</p>
 										<p className="text-xl font-light leading-snug group-hover:underline decoration-border">
@@ -162,7 +162,7 @@ export default function ContactPage() {
 									<button
 										type="button"
 										onClick={() => setIsSuccess(false)}
-										className="text-sm tracking-[0.2em] uppercase font-bold underline underline-offset-8"
+										className="text-sm tracking-wide-sm uppercase font-bold underline underline-offset-8"
 									>
 										Send another message
 									</button>

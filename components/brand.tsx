@@ -36,7 +36,7 @@ export function Brand({ variant = "full", className, logoSize = 48 }: BrandProps
 				<div className="flex flex-col gap-0">
 					{/* English line */}
 					<div className="flex items-baseline">
-						<span className="font-bold text-base md:text-xl tracking-[0.2em] whitespace-nowrap uppercase">
+						<span className="font-bold text-base md:text-xl tracking-wide-sm whitespace-nowrap uppercase">
 							KE HA ESKE PE
 							{showTagline && (
 								<span className="font-light text-[8px] md:text-label-md tracking-widest opacity-60 ml-2 border-l border-foreground/20 pl-2">

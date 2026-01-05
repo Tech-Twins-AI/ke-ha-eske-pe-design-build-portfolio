@@ -61,7 +61,7 @@ export function Navbar() {
 				{/* Desktop Navigation - white when unscrolled (right side over dark background) */}
 				<div
 					className={cn(
-						"hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase font-bold transition-colors duration-500",
+						"hidden md:flex items-center gap-10 text-xs tracking-wide-md uppercase font-bold transition-colors duration-500",
 						scrolled ? "text-foreground" : "text-primary-foreground",
 					)}
 				>

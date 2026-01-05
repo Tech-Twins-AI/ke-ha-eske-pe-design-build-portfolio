@@ -23,7 +23,7 @@ export default function AboutPage() {
 					<motion.p
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
-						className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-6 font-semibold"
+						className="text-sm tracking-wide-sm uppercase text-muted-foreground mb-6 font-semibold"
 					>
 						Who We Are
 					</motion.p>
@@ -53,7 +53,7 @@ export default function AboutPage() {
 			<div className="bg-background my-24">
 				<div className="max-w-7xl mx-auto px-6 md:px-12">
 					<div className="text-center mb-24">
-						<p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-6 font-semibold">
+						<p className="text-sm tracking-wide-sm uppercase text-muted-foreground mb-6 font-semibold">
 							Leadership
 						</p>
 						<h2 className="text-4xl md:text-5xl font-bold tracking-widest uppercase">
@@ -82,7 +82,7 @@ export default function AboutPage() {
 								<h3 className="text-xl font-bold tracking-tight uppercase mb-1">
 									{architect.name}
 								</h3>
-								<p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-bold">
+								<p className="text-[10px] tracking-wide-sm uppercase text-muted-foreground font-bold">
 									{architect.role}
 								</p>
 							</div>

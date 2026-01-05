@@ -39,7 +39,7 @@ export function Philosophy() {
 							transition={{ duration: 0.8 }}
 						>
 							{/* Section Label */}
-							<h2 className="text-label tracking-[0.5em] uppercase text-secondary mb-6 font-bold">
+							<h2 className="text-label tracking-wide-lg uppercase text-secondary mb-6 font-bold">
 								OUR PHILOSOPHY
 							</h2>
 
@@ -68,7 +68,7 @@ export function Philosophy() {
 											suffix={stat.suffix}
 											className="text-2xl font-bold tracking-tighter"
 										/>
-										<div className="text-2xs uppercase tracking-[0.2em] text-secondary leading-tight whitespace-pre-line">
+										<div className="text-2xs uppercase tracking-wide-sm text-secondary leading-tight whitespace-pre-line">
 											{stat.label}
 										</div>
 									</div>
@@ -122,7 +122,7 @@ export function Philosophy() {
 								<div className="flex-1">
 									<div className="flex items-center gap-3 mb-4">
 										<Square size={18} className="text-foreground" />
-										<h4 className="text-sm font-bold tracking-[0.2em] uppercase">
+										<h4 className="text-sm font-bold tracking-wide-sm uppercase">
 											From Paper To Ground
 										</h4>
 									</div>

@@ -46,7 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 				{/* Content */}
 				<div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 text-primary-foreground z-10">
 					<div className="transition-transform duration-500 group-hover:-translate-y-2">
-						<p className="text-xs tracking-[0.2em] uppercase text-primary-foreground/70 mb-1 font-bold">
+						<p className="text-xs tracking-wide-sm uppercase text-primary-foreground/70 mb-1 font-bold">
 							{categoryLabels[project.category ?? ""] ?? project.category}
 						</p>
 						<h3 className="text-xl md:text-2xl font-bold tracking-tight leading-tight">
