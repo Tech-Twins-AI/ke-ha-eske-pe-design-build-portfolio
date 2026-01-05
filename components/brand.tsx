@@ -11,21 +11,21 @@ interface BrandProps {
 	logoSize?: number;
 }
 
-export function Brand({ variant = "full", className, logoSize = 48 }: BrandProps) {
+export function Brand({ variant = "full", className, logoSize = 52 }: BrandProps) {
 	const showName = variant !== "logo";
 	const showTagline = variant === "full";
 
 	return (
 		<Link href="/" className={cn("flex items-center gap-3 md:gap-5", className)}>
 			{/* Logo */}
-			<div className="shrink-0 rounded-full overflow-hidden bg-background shadow-sm border border-border flex items-center justify-center">
+			<div className="shrink-0 rounded-full overflow-hidden bg-background shadow-sm border border-border flex items-center justify-center transition-transform duration-500 hover:scale-105">
 				<Image
 					src={logo}
 					alt="Ke Ha Eske Pe Logo"
 					width={logoSize}
 					height={logoSize}
 					className={cn(
-						"object-cover mix-blend-multiply transition-transform duration-500 hover:scale-105",
+						"object-cover mix-blend-multiply ",
 						!logoSize && "w-12 h-12 md:w-16 md:h-16",
 					)}
 				/>
