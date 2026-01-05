@@ -4,7 +4,7 @@ import { CheckCircle, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
-import { sendContactEmail, type ContactFormState } from "@/app/actions";
+import { type ContactFormState, sendContactEmail } from "@/app/actions";
 import { Button, Input, Textarea } from "@/components/ui";
 
 const contactItems = [

@@ -1,2 +1,1 @@
-export { sendContactEmail, type ContactFormState } from "./contact";
-
+export { type ContactFormState, sendContactEmail } from "./contact";

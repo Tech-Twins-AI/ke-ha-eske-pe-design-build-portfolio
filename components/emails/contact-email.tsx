@@ -1,5 +1,3 @@
-import * as React from "react";
-
 interface ContactEmailProps {
 	name: string;
 	email: string;
@@ -152,4 +150,3 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
 		</div>
 	);
 }
-
