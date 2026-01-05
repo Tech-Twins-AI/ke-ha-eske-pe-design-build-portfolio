@@ -1,3 +1,16 @@
+import {
+	Body,
+	Container,
+	Head,
+	Heading,
+	Hr,
+	Html,
+	Link,
+	Preview,
+	Section,
+	Text,
+} from "@react-email/components";
+
 interface ContactEmailProps {
 	name: string;
 	email: string;
@@ -6,147 +19,128 @@ interface ContactEmailProps {
 
 export function ContactEmail({ name, email, message }: ContactEmailProps) {
 	return (
-		<div
-			style={{
-				fontFamily: "Arial, sans-serif",
-				maxWidth: "600px",
-				margin: "0 auto",
-				padding: "40px 20px",
-				backgroundColor: "#ffffff",
-			}}
-		>
-			<div
-				style={{
-					borderBottom: "2px solid #000000",
-					paddingBottom: "20px",
-					marginBottom: "30px",
-				}}
-			>
-				<h1
-					style={{
-						fontSize: "24px",
-						fontWeight: "bold",
-						margin: "0",
-						color: "#000000",
-						letterSpacing: "-0.5px",
-					}}
-				>
-					New Contact Form Submission
-				</h1>
-				<p
-					style={{
-						fontSize: "14px",
-						color: "#666666",
-						margin: "8px 0 0 0",
-						textTransform: "uppercase",
-						letterSpacing: "1px",
-					}}
-				>
-					Ke Ha Eske Pe Design & Build
-				</p>
-			</div>
+		<Html>
+			<Head />
+			<Preview>New contact from {name}</Preview>
+			<Body style={main}>
+				<Container style={container}>
+					{/* Header */}
+					<Section style={header}>
+						<Heading style={h1}>New Contact Form Submission</Heading>
+						<Text style={subtitle}>Ke Ha Eske Pe Design & Build</Text>
+					</Section>
 
-			<div style={{ marginBottom: "30px" }}>
-				<div style={{ marginBottom: "20px" }}>
-					<p
-						style={{
-							fontSize: "12px",
-							color: "#888888",
-							margin: "0 0 4px 0",
-							textTransform: "uppercase",
-							letterSpacing: "1px",
-						}}
-					>
-						From
-					</p>
-					<p
-						style={{
-							fontSize: "18px",
-							fontWeight: "600",
-							margin: "0",
-							color: "#000000",
-						}}
-					>
-						{name}
-					</p>
-				</div>
+					<Hr style={hr} />
 
-				<div style={{ marginBottom: "20px" }}>
-					<p
-						style={{
-							fontSize: "12px",
-							color: "#888888",
-							margin: "0 0 4px 0",
-							textTransform: "uppercase",
-							letterSpacing: "1px",
-						}}
-					>
-						Email
-					</p>
-					<a
-						href={`mailto:${email}`}
-						style={{
-							fontSize: "16px",
-							color: "#000000",
-							textDecoration: "underline",
-						}}
-					>
-						{email}
-					</a>
-				</div>
+					{/* Content */}
+					<Section style={content}>
+						<Text style={label}>From</Text>
+						<Text style={value}>{name}</Text>
 
-				<div>
-					<p
-						style={{
-							fontSize: "12px",
-							color: "#888888",
-							margin: "0 0 8px 0",
-							textTransform: "uppercase",
-							letterSpacing: "1px",
-						}}
-					>
-						Message
-					</p>
-					<div
-						style={{
-							backgroundColor: "#f5f5f5",
-							padding: "20px",
-							borderLeft: "3px solid #000000",
-						}}
-					>
-						<p
-							style={{
-								fontSize: "16px",
-								lineHeight: "1.6",
-								margin: "0",
-								color: "#333333",
-								whiteSpace: "pre-wrap",
-							}}
-						>
-							{message}
-						</p>
-					</div>
-				</div>
-			</div>
+						<Text style={label}>Email</Text>
+						<Link href={`mailto:${email}`} style={link}>
+							{email}
+						</Link>
 
-			<div
-				style={{
-					borderTop: "1px solid #e5e5e5",
-					paddingTop: "20px",
-					marginTop: "30px",
-				}}
-			>
-				<p
-					style={{
-						fontSize: "12px",
-						color: "#888888",
-						margin: "0",
-						textAlign: "center" as const,
-					}}
-				>
-					This message was sent from the Ke Ha Eske Pe website contact form.
-				</p>
-			</div>
-		</div>
+						<Text style={label}>Message</Text>
+						<Section style={messageBox}>
+							<Text style={messageText}>{message}</Text>
+						</Section>
+					</Section>
+
+					<Hr style={hr} />
+
+					{/* Footer */}
+					<Text style={footer}>
+						This message was sent from the Ke Ha Eske Pe website contact form.
+					</Text>
+				</Container>
+			</Body>
+		</Html>
 	);
 }
+
+// Styles
+const main = {
+	backgroundColor: "#f5f5f5",
+	fontFamily: "Arial, sans-serif",
+};
+
+const container = {
+	backgroundColor: "#ffffff",
+	margin: "40px auto",
+	padding: "40px",
+	maxWidth: "600px",
+};
+
+const header = {
+	marginBottom: "24px",
+};
+
+const h1 = {
+	color: "#000000",
+	fontSize: "24px",
+	fontWeight: "bold" as const,
+	margin: "0 0 8px 0",
+	letterSpacing: "-0.5px",
+};
+
+const subtitle = {
+	color: "#666666",
+	fontSize: "14px",
+	margin: "0",
+	textTransform: "uppercase" as const,
+	letterSpacing: "1px",
+};
+
+const hr = {
+	borderColor: "#e5e5e5",
+	margin: "24px 0",
+};
+
+const content = {
+	marginBottom: "24px",
+};
+
+const label = {
+	color: "#888888",
+	fontSize: "12px",
+	margin: "16px 0 4px 0",
+	textTransform: "uppercase" as const,
+	letterSpacing: "1px",
+};
+
+const value = {
+	color: "#000000",
+	fontSize: "18px",
+	fontWeight: "600" as const,
+	margin: "0",
+};
+
+const link = {
+	color: "#000000",
+	fontSize: "16px",
+	textDecoration: "underline",
+};
+
+const messageBox = {
+	backgroundColor: "#f5f5f5",
+	borderLeft: "3px solid #000000",
+	padding: "16px",
+	marginTop: "8px",
+};
+
+const messageText = {
+	color: "#333333",
+	fontSize: "16px",
+	lineHeight: "1.6",
+	margin: "0",
+	whiteSpace: "pre-wrap" as const,
+};
+
+const footer = {
+	color: "#888888",
+	fontSize: "12px",
+	textAlign: "center" as const,
+	margin: "0",
+};
