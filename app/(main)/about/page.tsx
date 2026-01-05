@@ -50,7 +50,8 @@ const services = [
 	{
 		icon: Compass,
 		title: "Architectural Design",
-		description: "From conceptual sketches to detailed blueprints, we design buildings that breathe.",
+		description:
+			"From conceptual sketches to detailed blueprints, we design buildings that breathe.",
 	},
 	{
 		icon: Home,
