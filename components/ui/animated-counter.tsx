@@ -19,10 +19,10 @@ export function AnimatedCounter({
 	const ref = useRef<HTMLSpanElement>(null);
 	const motionValue = useMotionValue(direction === "down" ? value : 0);
 	const springValue = useSpring(motionValue, {
-		damping: 60,
-		stiffness: 100,
+		damping: 50,
+		stiffness: 200,
 	});
-	const isInView = useInView(ref, { once: true, margin: "-100px" });
+	const isInView = useInView(ref, { once: true });
 
 	useEffect(() => {
 		if (isInView) {
