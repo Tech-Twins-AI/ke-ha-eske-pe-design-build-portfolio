@@ -50,7 +50,7 @@ export function Navbar() {
 					"fixed w-full px-6 md:px-12 flex justify-between items-center z-50 transition-all duration-500 ease-in-out",
 					scrolled
 						? "py-4 bg-background/35 backdrop-blur-xl border-b border-foreground/5 shadow-sm"
-						: "py-6 md:py-8 bg-transparent"
+						: "py-6 md:py-8 bg-transparent",
 				)}
 			>
 				{/* Brand - stays dark (left side over white background) */}
@@ -62,7 +62,7 @@ export function Navbar() {
 				<div
 					className={cn(
 						"hidden md:flex items-center gap-10 text-xs tracking-[0.25em] uppercase font-bold transition-colors duration-500",
-						scrolled ? "text-foreground" : "text-primary-foreground"
+						scrolled ? "text-foreground" : "text-primary-foreground",
 					)}
 				>
 					{navItems.map((item) => (
@@ -78,7 +78,7 @@ export function Navbar() {
 							className={cn(
 								scrolled
 									? "border-foreground text-foreground hover:bg-foreground hover:text-background"
-									: "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent"
+									: "border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent",
 							)}
 						>
 							Consult
@@ -88,12 +88,10 @@ export function Navbar() {
 					<div
 						className={cn(
 							"flex items-center gap-6 border-l pl-6 ml-2",
-							scrolled ? "border-foreground/10" : "border-primary-foreground/20"
+							scrolled ? "border-foreground/10" : "border-primary-foreground/20",
 						)}
 					>
-						<LanguageToggle
-							className={scrolled ? "" : "text-primary-foreground"}
-						/>
+						<LanguageToggle className={scrolled ? "" : "text-primary-foreground"} />
 						<Link
 							href={`tel:${phone}`}
 							className="font-mono opacity-60 flex items-center gap-2 text-sm tracking-normal"
