@@ -27,6 +27,33 @@ const contactItems = [
 	},
 ];
 
+// Animation variants for consistent fade + slide-up
+const fadeUp = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+	},
+};
+
+const staggerContainer = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: { staggerChildren: 0.1 },
+	},
+};
+
+const contactItemVariant = {
+	hidden: { opacity: 0, y: 15 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+	},
+};
+
 export default function ContactPage() {
 	const [formState, setFormState] = useState({ name: "", email: "", message: "" });
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,46 +83,58 @@ export default function ContactPage() {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
 					{/* Left: Info */}
 					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ delay: 0.2 }}
+						initial="hidden"
+						animate="visible"
+						variants={staggerContainer}
 					>
-						<p className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold">
+						<motion.p
+							variants={fadeUp}
+							className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold"
+						>
 							Get In Touch
-						</p>
-						<h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-12">
+						</motion.p>
+						<motion.h1
+							variants={fadeUp}
+							className="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-12"
+						>
 							Let&apos;s Build <span className="block">Together</span>
-						</h1>
+						</motion.h1>
 
-						<div className="space-y-12">
+						<motion.div
+							variants={staggerContainer}
+							initial="hidden"
+							animate="visible"
+							className="space-y-12"
+						>
 							{contactItems.map((item) => (
-								<Link
-									key={item.label}
-									href={item.href}
-									target={item.href.startsWith("http") ? "_blank" : "_self"}
-									className="flex items-start gap-6 group"
-								>
-									<div className="mt-1 text-secondary group-hover:text-foreground transition-colors">
-										<item.icon size={20} />
-									</div>
-									<div>
-										<p className="text-2xs md:text-label tracking-wide-sm uppercase text-secondary font-bold mb-2">
-											{item.label}
-										</p>
-										<p className="text-base md:text-xl font-light leading-snug group-hover:underline decoration-foreground/10 break-all">
-											{item.value}
-										</p>
-									</div>
-								</Link>
+								<motion.div key={item.label} variants={contactItemVariant}>
+									<Link
+										href={item.href}
+										target={item.href.startsWith("http") ? "_blank" : "_self"}
+										className="flex items-start gap-6 group"
+									>
+										<div className="mt-1 text-secondary group-hover:text-foreground transition-colors">
+											<item.icon size={20} />
+										</div>
+										<div>
+											<p className="text-2xs md:text-label tracking-wide-sm uppercase text-secondary font-bold mb-2">
+												{item.label}
+											</p>
+											<p className="text-base md:text-xl font-light leading-snug group-hover:underline decoration-foreground/10 break-all">
+												{item.value}
+											</p>
+										</div>
+									</Link>
+								</motion.div>
 							))}
-						</div>
+						</motion.div>
 					</motion.div>
 
 					{/* Right: Form */}
 					<motion.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ delay: 0.4 }}
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.3 }}
 						className="relative"
 					>
 						<AnimatePresence mode="wait">
