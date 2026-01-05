@@ -50,10 +50,10 @@ export function Navbar() {
 			{/* Main Navigation Bar */}
 			<nav
 				className={cn(
-					"fixed w-full px-6 md:px-12 flex justify-between items-center z-50 transition-all duration-500 ease-in-out",
+					"fixed w-full px-6 md:px-12 flex justify-between items-center z-50 transition-all duration-500 ease-in-out border-b",
 					scrolled
-						? "py-4 bg-background/35 backdrop-blur-xl border-b border-foreground/5 shadow-sm"
-						: "py-6 md:py-8 bg-transparent",
+						? "py-4 bg-background/35 backdrop-blur-xl border-foreground/5 shadow-sm"
+						: "py-6 md:py-8 bg-transparent border-transparent",
 				)}
 			>
 				{/* Brand - stays dark (left side over white background) */}

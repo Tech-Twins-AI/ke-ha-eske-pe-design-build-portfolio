@@ -26,14 +26,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 	return (
 		<section className="bg-background min-h-screen pt-32 pb-20">
 			<div className="max-w-7xl mx-auto px-6 md:px-12">
-				{/* Back Button */}
-				<Link
-					href="/#works"
-					className="group inline-flex items-center gap-3 text-xs tracking-widest uppercase font-semibold mb-16 hover:opacity-50 transition-all"
-				>
-					<ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
-					Back to Projects
-				</Link>
 
 				{/* Hero Section */}
 				<div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-24">
