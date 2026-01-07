@@ -12,7 +12,7 @@ const backgroundImageVariants = {
 
 const buildBackgroundImageVariants = {
 	initial: { opacity: 0, scale: 1.1 },
-	animate: { opacity: 0.25, scale: 1 },
+	animate: { opacity: 0.4, scale: 1 },
 };
 
 const contentVariants = {
@@ -80,7 +80,7 @@ export function Hero() {
 						src={buildBgUrl}
 						alt="Construction background"
 						fill
-						className="object-cover grayscale brightness-[0.4]"
+						className="object-cover grayscale brightness-[0.55]"
 						priority
 					/>
 					{/* Radial Gradient Overlay */}
