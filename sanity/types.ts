@@ -62,11 +62,6 @@ export type Project = {
   title: string;
   slug: Slug;
   category: "exterior" | "interior" | "construction" | "finishing" | "renovation";
-  location?: string;
-  area?: number;
-  year?: number;
-  clientName?: string;
-  description?: string;
   featuredImage: {
     asset?: {
       _ref: string;
@@ -79,25 +74,6 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  gallery?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-  }>;
-  specifications?: Array<{
-    label?: string;
-    value?: string;
-    _type: "spec";
-    _key: string;
-  }>;
 };
 
 export type Slug = {
@@ -231,17 +207,14 @@ export type PROJECT_QUERYResult = {
   title: string;
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
-  location: string | null;
-  area: number | null;
-  year: number | null;
-  clientName: string | null;
-  description: string | null;
+  location: null;
+  area: null;
+  year: null;
+  clientName: null;
+  description: null;
   featuredImage: string | null;
-  gallery: Array<string | null> | null;
-  specifications: Array<{
-    label: string | null;
-    value: string | null;
-  }> | null;
+  gallery: null;
+  specifications: null;
 } | null;
 
 // Query TypeMap
