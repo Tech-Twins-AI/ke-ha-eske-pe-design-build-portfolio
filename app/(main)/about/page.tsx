@@ -296,6 +296,7 @@ export default function AboutPage() {
 									src={architect.image}
 									alt={architect.name}
 									fill
+									sizes="(max-width: 1024px) 100vw, 512px"
 									className="object-cover group-hover:scale-105 transition-transform duration-1000"
 								/>
 							</div>

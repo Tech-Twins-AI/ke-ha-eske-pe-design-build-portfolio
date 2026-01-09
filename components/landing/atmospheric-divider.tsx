@@ -32,6 +32,7 @@ export function AtmosphericDivider() {
 					src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=70&w=1280&fm=webp"
 					alt="Architectural building"
 					fill
+					sizes="100vw"
 					className="object-cover grayscale brightness-[0.3]"
 				/>
 			</motion.div>

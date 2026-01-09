@@ -38,7 +38,8 @@ function ProjectCard({ project }: ProjectCardProps) {
 			exit={{ opacity: 0 }}
 			viewport={{ once: true, margin: "0px 0px -50px 0px" }}
 			transition={{ duration: 0.5, ease: "easeOut" }}
-			className="group relative overflow-hidden aspect-16/10 block bg-muted shadow-sm"
+			tabIndex={0}
+			className="group relative overflow-hidden aspect-16/10 block bg-muted shadow-sm focus:outline-none"
 		>
 			{/* Image */}
 			{project.featuredImage && (
@@ -46,16 +47,17 @@ function ProjectCard({ project }: ProjectCardProps) {
 					src={project.featuredImage}
 					alt={project.title}
 					fill
-					className="object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-105"
+					sizes="(max-width: 768px) 100vw, 50vw"
+					className="object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-focus:grayscale-0 group-hover:scale-105 group-focus:scale-105 group-hover:brightness-105 group-focus:brightness-105"
 				/>
 			)}
 
 			{/* Gradient Overlay */}
-			<div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent transition-all duration-700 opacity-80 group-hover:opacity-30" />
+			<div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent transition-all duration-700 opacity-80 group-hover:opacity-30 group-focus:opacity-30" />
 
 			{/* Content */}
 			<div className="absolute inset-0 flex flex-col justify-end p-8 text-primary-foreground z-10">
-				<div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2">
+				<div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-focus:-translate-y-2">
 					<h3 className="text-xl md:text-2xl font-bold tracking-tight leading-tight max-w-[90%]">
 						{project.title}
 					</h3>

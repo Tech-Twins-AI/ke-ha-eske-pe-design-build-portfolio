@@ -39,6 +39,7 @@ export function CategoryCard({
 					src={featuredImage}
 					alt={category.label}
 					fill
+					sizes="(max-width: 768px) 100vw, 50vw"
 					className="object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-focus-within:grayscale-0 group-hover:scale-105 group-focus-within:scale-105"
 				/>
 			)}

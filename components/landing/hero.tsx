@@ -37,6 +37,7 @@ export function Hero() {
 						src={designBgUrl}
 						alt="Architectural design background"
 						fill
+						sizes="(max-width: 768px) 100vw, 50vw"
 						className="object-cover grayscale mix-blend-multiply brightness-[1.15] contrast-[1.1]"
 						priority
 					/>
@@ -80,6 +81,7 @@ export function Hero() {
 						src={buildBgUrl}
 						alt="Construction background"
 						fill
+						sizes="(max-width: 768px) 100vw, 50vw"
 						className="object-cover grayscale brightness-[0.55]"
 						priority
 					/>
