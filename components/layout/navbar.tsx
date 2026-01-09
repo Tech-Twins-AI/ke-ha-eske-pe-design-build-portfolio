@@ -139,7 +139,8 @@ interface NavLinkProps {
 }
 
 function NavLink({ href, children, onClick }: NavLinkProps) {
-	const isHashLink = href.startsWith("#");
+	console.log(href);
+	const isHashLink = href.startsWith("#") || href.startsWith("/#");
 	const Component = isHashLink ? "a" : Link;
 
 	return (
