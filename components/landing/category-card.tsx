@@ -23,11 +23,12 @@ export function CategoryCard({
 	const isLarge = variant === "large";
 
 	return (
-		<motion.article
+		<motion.div
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			viewport={{ once: true, margin: "0px 0px -50px 0px" }}
 			transition={{ duration: 0.5, ease: "easeOut" }}
+			tabIndex={0}
 			className={`group relative overflow-hidden bg-muted h-full ${
 				isLarge ? "aspect-square md:aspect-auto" : "aspect-4/5"
 			}`}
@@ -42,10 +43,8 @@ export function CategoryCard({
 				/>
 			)}
 
-			{/* Gradient Overlay */}
 			<div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent transition-all duration-700 opacity-80 group-hover:opacity-60 group-focus-within:opacity-60" />
 
-			{/* Grid Overlay - consistent with hero */}
 			<div className="absolute inset-0 bg-grid-light opacity-[0.08] pointer-events-none" />
 
 			{/* Content */}
@@ -55,12 +54,10 @@ export function CategoryCard({
 				}`}
 			>
 				<div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-focus-within:-translate-y-2">
-					{/* Project Count */}
 					<p className="text-label tracking-wide-sm uppercase text-primary-foreground/80 mb-3 font-bold">
 						{projectCount} {projectCount === 1 ? "Project" : "Projects"}
 					</p>
 
-					{/* Category Title */}
 					<h3
 						className={`font-bold tracking-tight leading-tight mb-4 ${
 							isLarge ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"
@@ -69,7 +66,6 @@ export function CategoryCard({
 						{category.label}
 					</h3>
 
-					{/* View More CTA - Always visible, only clickable element */}
 					<Link
 						href={`/works/${category.id}`}
 						className="inline-flex items-center gap-3 text-2xs tracking-wide-lg uppercase font-bold transition-all duration-300 hover:gap-4 focus:outline-none focus:gap-4"
@@ -80,10 +76,9 @@ export function CategoryCard({
 				</div>
 			</div>
 
-			{/* Corner Accent - consistent with project card style */}
 			<div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500">
 				<div className="absolute top-4 right-4 w-3 h-3 border-t border-r border-primary-foreground/30" />
 			</div>
-		</motion.article>
+		</motion.div>
 	);
 }

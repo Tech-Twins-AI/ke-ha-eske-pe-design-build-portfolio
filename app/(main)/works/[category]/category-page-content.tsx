@@ -1,6 +1,6 @@
 "use client";
 
-import { FolderOpen } from "lucide-react";
+import { ArrowLeft, FolderOpen } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -87,7 +87,7 @@ export function CategoryPageContent({ categoryData, projects }: CategoryPageCont
 							href="/#work"
 							className="text-label tracking-wide-xl uppercase text-secondary font-bold hover:text-foreground transition-colors inline-flex items-center gap-2"
 						>
-							<span>←</span>
+							<ArrowLeft size={16} />
 							<span>Our Work</span>
 						</Link>
 					</motion.div>
