@@ -39,7 +39,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 			)}
 
 			{/* Gradient Overlay - hidden by default, visible on hover/focus */}
-			<div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent transition-all duration-700 opacity-0 group-hover:opacity-100 group-focus:opacity-100" />
+			<div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent transition-all duration-700 opacity-0 group-hover:opacity-100 group-focus:opacity-100" />
 
 			{/* Content - hidden by default, appears on hover/focus */}
 			<div className="absolute inset-0 flex flex-col justify-end p-8 text-primary-foreground z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500">
