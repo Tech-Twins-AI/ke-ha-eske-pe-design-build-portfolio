@@ -105,7 +105,10 @@ export function ProjectsGridClient({
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
 			>
-				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 600: 2, 768: 3, 1024: 4 }} gutterBreakPoints={{ 350: "12px", 600: "16px", 768: "24px", 1024: "32px" }}>
+				<ResponsiveMasonry
+					columnsCountBreakPoints={{ 350: 1, 600: 2, 768: 3, 1024: 4 }}
+					gutterBreakPoints={{ 350: "12px", 600: "16px", 768: "24px", 1024: "32px" }}
+				>
 					<Masonry>
 						{projects.map((project) => (
 							<ProjectCard key={project._id} project={project} />
