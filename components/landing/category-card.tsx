@@ -60,7 +60,7 @@ export function CategoryCard({
 					</p>
 
 					<h3
-						className={`font-bold tracking-tight leading-tight mb-4 ${
+						className={`font-semibold tracking-tight leading-tight mb-4 ${
 							isLarge ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"
 						}`}
 					>

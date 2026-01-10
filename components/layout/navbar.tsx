@@ -67,7 +67,7 @@ export function Navbar() {
 				{/* Desktop Navigation - white only on home page when unscrolled */}
 				<div
 					className={cn(
-						"hidden lg:flex items-center gap-10 text-xs tracking-wide-md uppercase font-bold transition-colors duration-500",
+						"hidden lg:flex items-center gap-10 text-xs tracking-wide-md uppercase font-semibold transition-colors duration-500",
 						isHome && !scrolled ? "text-primary-foreground" : "text-foreground",
 					)}
 				>
@@ -139,18 +139,19 @@ interface NavLinkProps {
 }
 
 function NavLink({ href, children, onClick }: NavLinkProps) {
-	const isHashLink = href.startsWith("#") || href.startsWith("/#");
-	const Component = isHashLink ? "a" : Link;
-
 	return (
-		<Component href={href} onClick={onClick} className="relative group overflow-hidden py-1">
-			<span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">
+		<Link
+			href={href}
+			onClick={onClick}
+			className="relative group overflow-hidden block h-5 font-semibold"
+		>
+			<span className="block transition-transform duration-300 group-hover:-translate-y-full">
 				{children}
 			</span>
-			<span className="absolute left-0 top-full inline-block transition-transform duration-300 group-hover:-translate-y-full opacity-60">
+			<span className="block transition-transform duration-300 group-hover:-translate-y-full opacity-60">
 				{children}
 			</span>
-		</Component>
+		</Link>
 	);
 }
 
@@ -213,13 +214,13 @@ function MobileMenu({ isOpen, onClose, navItems, phone }: MobileMenuProps) {
 					<div className="flex flex-col gap-8 text-center">
 						{navItems.map((item) => (
 							<motion.div key={item.href} variants={itemVariants}>
-								<a
+								<Link
 									href={item.href}
 									onClick={onClose}
 									className="text-4xl font-bold tracking-tighter hover:text-secondary transition-colors"
 								>
 									{item.label}
-								</a>
+								</Link>
 							</motion.div>
 						))}
 

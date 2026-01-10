@@ -34,7 +34,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	) => {
 		// Base styles shared by all variants
 		const baseStyles =
-			"relative inline-flex items-center justify-center font-medium uppercase transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed";
+			"relative inline-flex items-center justify-center uppercase transition-all duration-300 ease-out disabled:opacity-50 disabled:cursor-not-allowed";
 
 		// Size variants
 		const sizeStyles: Record<ButtonSize, string> = {

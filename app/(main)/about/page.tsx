@@ -114,7 +114,7 @@ export default function AboutPage() {
 					/>
 					<motion.p
 						variants={fadeUp}
-						className="max-w-2xl mx-auto text-secondary text-xl font-light leading-relaxed"
+						className="max-w-2xl mx-auto text-secondary text-xl leading-relaxed"
 					>
 						The name &apos;Ke Ha Eske Pe&apos; (ከሀ እስከ ፐ) signifies the complete Amharic alphabet.
 						It represents our core notion: bridging the gap between design and construction to
@@ -138,7 +138,7 @@ export default function AboutPage() {
 								Our Mission
 							</h3>
 						</div>
-						<p className="text-lg md:text-xl text-secondary font-light leading-relaxed">
+						<p className="text-lg md:text-xl text-secondary leading-relaxed">
 							To redefine the construction landscape in Ethiopia by providing a seamless, integrated
 							design-build experience that prioritizes architectural integrity above all else.
 						</p>
@@ -152,7 +152,7 @@ export default function AboutPage() {
 								Our Vision
 							</h3>
 						</div>
-						<p className="text-lg md:text-xl text-secondary font-light leading-relaxed">
+						<p className="text-lg md:text-xl text-secondary leading-relaxed">
 							To become the benchmark for contemporary Ethiopian architecture, creating spaces that
 							honor tradition while embracing modern engineering.
 						</p>
@@ -202,7 +202,7 @@ export default function AboutPage() {
 								<h4 className="text-lg font-bold tracking-tight uppercase mb-3 md:mb-4">
 									{value.title}
 								</h4>
-								<p className="text-secondary font-light leading-relaxed text-sm md:text-base">
+								<p className="text-secondary leading-relaxed text-sm md:text-base">
 									{value.description}
 								</p>
 							</motion.div>
@@ -257,7 +257,7 @@ export default function AboutPage() {
 								<h4 className="text-xl md:text-2xl font-bold tracking-tight uppercase mb-4 md:mb-6 group-hover:translate-x-2 transition-transform duration-500">
 									{service.title}
 								</h4>
-								<p className="text-secondary font-light leading-relaxed text-base md:text-lg max-w-md">
+								<p className="text-secondary leading-relaxed text-base md:text-lg max-w-md">
 									{service.description}
 								</p>
 
@@ -290,21 +290,23 @@ export default function AboutPage() {
 					</motion.div>
 
 					<motion.div variants={fadeUp} className="flex flex-col gap-12 lg:gap-16">
-						<div className="group cursor-pointer">
-							<div className="aspect-3/4 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 mb-8 bg-muted relative max-w-lg mx-auto">
+						<div>
+							{/* biome-ignore lint/a11y/noNoninteractiveTabindex: reason is to make the image focusable on mobile */}
+							<div tabIndex={0}
+								className="group cursor-pointer aspect-3/4 overflow-hidden grayscale hover:grayscale-0 focus:grayscale-0 transition-all duration-700 mb-8 bg-muted relative max-w-lg mx-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
 								<Image
 									src={architect.image}
 									alt={architect.name}
 									fill
 									sizes="(max-width: 1024px) 100vw, 512px"
-									className="object-cover group-hover:scale-105 transition-transform duration-1000"
+									className="object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-1000"
 								/>
 							</div>
 							<div className="text-center">
 								<h3 className="text-xl font-bold tracking-tight uppercase mb-1">
 									{architect.name}
 								</h3>
-								<p className="text-[10px] tracking-wide-sm uppercase text-muted-foreground font-bold">
+								<p className="text-sm tracking-wide-sm uppercase text-muted-foreground font-semibold">
 									{architect.role}
 								</p>
 							</div>

@@ -8,7 +8,8 @@ export const PROJECT_CATEGORIES = [
 	{
 		id: "interior",
 		label: "Interior Designs",
-		description: "Space planning, room layouts, and interior styling for residential and commercial spaces.",
+		description:
+			"Space planning, room layouts, and interior styling for residential and commercial spaces.",
 	},
 	{
 		id: "construction",

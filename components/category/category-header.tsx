@@ -55,10 +55,7 @@ export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
 				</motion.h1>
 
 				{/* Description */}
-				<motion.p
-					variants={fadeUp}
-					className="text-xl text-secondary font-light max-w-2xl leading-relaxed"
-				>
+				<motion.p variants={fadeUp} className="text-xl text-secondary max-w-2xl leading-relaxed">
 					{categoryData.description}
 				</motion.p>
 

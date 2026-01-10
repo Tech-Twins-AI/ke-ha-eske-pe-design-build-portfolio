@@ -53,11 +53,13 @@ export function ProjectCard({ project, onExpand }: ProjectCardProps) {
 			{/* Content - hidden by default, appears on hover/focus */}
 			<div className="absolute inset-0 flex flex-col justify-end p-8 text-primary-foreground z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500">
 				<div className="translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-					<h3 className="text-base md:text-lg font-bold tracking-tight leading-tight line-clamp-2">
+					<h3 className="text-base md:text-lg font-semibold tracking-tight leading-tight line-clamp-2">
 						{project.title}
 					</h3>
 					{project.location && (
-						<p className="text-sm text-primary-foreground/70 font-light mt-2">{project.location}</p>
+						<p className="text-sm md:text-base text-primary-foreground/70 mt-2">
+							{project.location}
+						</p>
 					)}
 				</div>
 			</div>

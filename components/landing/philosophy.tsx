@@ -49,7 +49,7 @@ export function Philosophy() {
 							<div className="w-12 h-[2px] bg-foreground mb-8" />
 
 							{/* Description */}
-							<p className="text-lg text-secondary leading-relaxed font-light mb-10">
+							<p className="text-lg text-secondary leading-relaxed mb-10">
 								The name 'Ke Ha Eske Pe' (<span className="font-amharic">ከሀ እስከ ፐ</span>) signifies
 								the complete Amharic alphabet. It represents our core notion: bridging the gap
 								between design and construction to ensure your vision remains uncompromised from the
@@ -88,7 +88,7 @@ export function Philosophy() {
 								<h4 className="text-xl font-bold tracking-tight uppercase">
 									Bridging The Fragmentation
 								</h4>
-								<p className="text-secondary leading-relaxed font-light">
+								<p className="text-secondary leading-relaxed">
 									In traditional projects, design and construction are often handled by separate
 									entities. This fragmentation frequently leads to miscommunication, budget
 									overruns, and undesired outputs that deviate from the original intent.
@@ -99,7 +99,7 @@ export function Philosophy() {
 								<h4 className="text-xl font-bold tracking-tight uppercase">
 									Single-Point Accountability
 								</h4>
-								<p className="text-secondary leading-relaxed font-light">
+								<p className="text-secondary leading-relaxed">
 									We serve as your single contract point. By overseeing everything from the initial
 									design stage through heavy construction and final furnishing, we eliminate
 									friction and guarantee the quality of the final result.
@@ -123,7 +123,7 @@ export function Philosophy() {
 											From Paper To Ground
 										</h4>
 									</div>
-									<p className="text-secondary leading-relaxed font-light">
+									<p className="text-secondary leading-relaxed">
 										Our primary mission is to ensure that every stroke on the blueprint is
 										translated with absolute fidelity onto the physical site. We don't just design;
 										we deliver the reality exactly as it was envisioned.

@@ -20,7 +20,7 @@
 	--color-border: #e5e5e5;
 
 	/* === TYPOGRAPHY === */
-	--font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-sans: var(--font-helvetica-neue), "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--font-amharic: var(--font-amharic), "Noto Sans Ethiopic", sans-serif;
 
 	/* === LETTER SPACING === */
