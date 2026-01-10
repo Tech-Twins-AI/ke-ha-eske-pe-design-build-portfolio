@@ -14,7 +14,7 @@ export function CategoryShowcase({ featuredProjects, projectCounts }: CategorySh
 	// Map featured projects to categories
 	const getCategoryImage = (categoryId: string) => {
 		const project = featuredProjects.find((p) => p.category === categoryId);
-		return project?.featuredImage ?? null;
+		return project?.featuredImage?.url ?? null;
 	};
 
 	return (

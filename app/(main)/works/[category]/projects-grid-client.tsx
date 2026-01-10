@@ -7,7 +7,6 @@ import { useState, useTransition } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { loadMoreProjects } from "@/app/actions";
 import { Button } from "@/components/ui";
 import type { PROJECTS_INITIAL_QUERYResult } from "@/sanity/types";
@@ -30,14 +29,16 @@ function ProjectCard({ project, onExpand }: ProjectCardProps) {
 			className="group relative overflow-hidden bg-muted focus:outline-none"
 		>
 			{/* Image - natural height for masonry effect */}
-			{project.featuredImage && (
+			{project.featuredImage?.url && (
 				<Image
-					src={project.featuredImage}
+					src={project.featuredImage.url}
 					alt={project.title}
-					width={800}
-					height={600}
-					sizes="(max-width: 768px) 100vw, 33vw"
-					className="object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-focus:grayscale-0 group-hover:scale-105 group-focus:scale-105 group-hover:brightness-105 group-focus:brightness-105"
+					width={project.featuredImage.width ?? 800}
+					height={project.featuredImage.height ?? 600}
+					placeholder={project.featuredImage.lqip ? "blur" : "empty"}
+					blurDataURL={project.featuredImage.lqip ?? undefined}
+					sizes="(max-width: 768px) 100vw, 25vw"
+					className="w-full h-auto object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-focus:grayscale-0 group-hover:scale-105 group-focus:scale-105 group-hover:brightness-105 group-focus:brightness-105"
 				/>
 			)}
 
@@ -57,7 +58,7 @@ function ProjectCard({ project, onExpand }: ProjectCardProps) {
 			{/* Content - hidden by default, appears on hover/focus */}
 			<div className="absolute inset-0 flex flex-col justify-end p-8 text-primary-foreground z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500">
 				<div className="translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
-					<h3 className="text-xl md:text-2xl font-bold tracking-tight leading-tight">
+					<h3 className="text-base md:text-lg font-bold tracking-tight leading-tight line-clamp-2">
 						{project.title}
 					</h3>
 					{project.location && (
@@ -118,24 +119,21 @@ export function ProjectsGridClient({
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5, ease: "easeOut" }}
-				suppressHydrationWarning={true}
+				className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3"
 			>
-				<ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 640: 2, 768: 3, 1024: 4 }}>
-					<Masonry>
-						{projects.map((project) => (
-							<ProjectCard
-								key={project._id}
-								project={project}
-								onExpand={() =>
-									setExpandedImage({
-										src: project.featuredImage as string,
-										alt: project.title,
-									})
-								}
-							/>
-						))}
-					</Masonry>
-				</ResponsiveMasonry>
+				{projects.map((project) => (
+					<div key={project._id} className="mb-3 break-inside-avoid-column block">
+						<ProjectCard
+							project={project}
+							onExpand={() =>
+								setExpandedImage({
+									src: project.featuredImage?.url ?? "",
+									alt: project.title,
+								})
+							}
+						/>
+					</div>
+				))}
 			</motion.div>
 
 			{/* Lightbox */}

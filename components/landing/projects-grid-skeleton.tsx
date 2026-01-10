@@ -1,23 +1,28 @@
-// Column heights for masonry effect
-const COLUMN_HEIGHTS = [
-	{ id: "col-0", heights: [380, 300, 420] },
-	{ id: "col-1", heights: [340, 400, 280] },
-	{ id: "col-2", heights: [300, 360, 380] },
-	{ id: "col-3", heights: [420, 280, 340] },
+// Skeleton items with varying heights for masonry effect
+const SKELETON_ITEMS = [
+	{ id: "s1", height: 380 },
+	{ id: "s2", height: 340 },
+	{ id: "s3", height: 300 },
+	{ id: "s4", height: 420 },
+	{ id: "s5", height: 300 },
+	{ id: "s6", height: 400 },
+	{ id: "s7", height: 360 },
+	{ id: "s8", height: 280 },
+	{ id: "s9", height: 420 },
+	{ id: "s10", height: 280 },
+	{ id: "s11", height: 380 },
+	{ id: "s12", height: 340 },
 ];
 
 export function ProjectsGridSkeleton() {
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-			{COLUMN_HEIGHTS.map((column) => (
-				<div key={column.id} className="grid gap-3">
-					{column.heights.map((height, index) => (
-						<div
-							key={`${column.id}-${index}`}
-							className="bg-muted/50 animate-pulse w-full"
-							style={{ height }}
-						/>
-					))}
+		<div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3">
+			{SKELETON_ITEMS.map((item) => (
+				<div key={item.id} className="mb-3 break-inside-avoid-column block">
+					<div
+						className="bg-muted/50 animate-pulse w-full"
+						style={{ height: item.height }}
+					/>
 				</div>
 			))}
 		</div>

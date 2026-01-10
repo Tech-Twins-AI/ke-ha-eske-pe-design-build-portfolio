@@ -33,7 +33,12 @@ export const PROJECTS_QUERY = defineQuery(`
     category,
     location,
     isFeatured,
-    "featuredImage": featuredImage.asset->url
+    "featuredImage": featuredImage.asset->{
+      url,
+      "width": metadata.dimensions.width,
+      "height": metadata.dimensions.height,
+      "lqip": metadata.lqip
+    }
   }
 `);
 
@@ -44,7 +49,12 @@ export const FEATURED_PROJECTS_QUERY = defineQuery(`
     title,
     slug,
     category,
-    "featuredImage": featuredImage.asset->url
+    "featuredImage": featuredImage.asset->{
+      url,
+      "width": metadata.dimensions.width,
+      "height": metadata.dimensions.height,
+      "lqip": metadata.lqip
+    }
   }
 `);
 
@@ -60,11 +70,11 @@ export const PROJECT_QUERY = defineQuery(`
     year,
     clientName,
     description,
-    "featuredImage": featuredImage.asset->url,
-    "gallery": gallery[].asset->url,
-    specifications[] {
-      label,
-      value
+    "featuredImage": featuredImage.asset->{
+      url,
+      "width": metadata.dimensions.width,
+      "height": metadata.dimensions.height,
+      "lqip": metadata.lqip
     }
   }
 `);
@@ -81,7 +91,12 @@ export const PROJECTS_INITIAL_QUERY = defineQuery(`
     slug,
     category,
     location,
-    "featuredImage": featuredImage.asset->url
+    "featuredImage": featuredImage.asset->{
+      url,
+      "width": metadata.dimensions.width,
+      "height": metadata.dimensions.height,
+      "lqip": metadata.lqip
+    }
   }
 `);
 
@@ -102,7 +117,12 @@ export const PROJECTS_CURSOR_QUERY = defineQuery(`
     slug,
     category,
     location,
-    "featuredImage": featuredImage.asset->url
+    "featuredImage": featuredImage.asset->{
+      url,
+      "width": metadata.dimensions.width,
+      "height": metadata.dimensions.height,
+      "lqip": metadata.lqip
+    }
   }
 `);
 
