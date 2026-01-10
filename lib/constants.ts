@@ -3,27 +3,27 @@ export const PROJECT_CATEGORIES = [
 	{
 		id: "exterior",
 		label: "Exterior Designs",
-		description: "Crafting stunning facades that define architectural identity.",
+		description: "Facade designs, outdoor landscaping, and external architectural elements.",
 	},
 	{
 		id: "interior",
 		label: "Interior Designs",
-		description: "Atmospheric spaces blending functionality with high-end aesthetics.",
+		description: "Space planning, room layouts, and interior styling for residential and commercial spaces.",
 	},
 	{
 		id: "construction",
 		label: "Construction",
-		description: "Heavy construction managed with structural precision and expert craftsmanship.",
+		description: "New builds, structural work, and ground-up construction projects.",
 	},
 	{
 		id: "finishing",
 		label: "Finishing Work",
-		description: "Meticulous attention to final details and uncompromising quality.",
+		description: "Flooring, painting, trim work, and final installation details.",
 	},
 	{
 		id: "renovation",
 		label: "Renovation",
-		description: "Transforming existing spaces with modern vision and renewed purpose.",
+		description: "Remodeling, restoration, and upgrades to existing buildings and spaces.",
 	},
 ] as const;
 

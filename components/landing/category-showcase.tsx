@@ -27,9 +27,13 @@ export function CategoryShowcase({ featuredProjects, projectCounts }: CategorySh
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16"
 				>
-					<h2 className="text-3xl md:text-5xl font-bold tracking-wide-lg mb-8 uppercase leading-relaxed">
+					<h2 className="text-3xl md:text-5xl font-bold tracking-wide-lg mb-6 uppercase leading-relaxed">
 						OUR WORK
 					</h2>
+					<p className="text-secondary text-lg max-w-2xl mx-auto mb-8">
+						From initial design to final finishing. We deliver complete, end-to-end building solutions.
+						Browse our work by category.
+					</p>
 					<div className="w-12 h-[2px] bg-foreground mx-auto" />
 				</motion.div>
 
