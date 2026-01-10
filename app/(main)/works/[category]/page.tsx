@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { CategoryHeader, ProjectsGrid } from "@/components/category";
 import { ProjectsGridSkeleton } from "@/components/landing/projects-grid-skeleton";
 import { PROJECT_CATEGORIES } from "@/lib/constants";
-import { CategoryHeader } from "./category-header";
-import { ProjectsGrid } from "./projects-grid";
 
 interface CategoryPageProps {
 	params: Promise<{ category: string }>;
