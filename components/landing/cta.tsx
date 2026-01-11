@@ -3,8 +3,11 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { useLanguage } from "@/lib/language-context";
 
 export function CTA() {
+	const currentLang = useLanguage();
+
 	return (
 		<section className="py-10 md:py-24 px-6 bg-background flex flex-col items-center text-center">
 			<motion.div
@@ -25,7 +28,7 @@ export function CTA() {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6, delay: 0.3 }}
 				>
-					<Link href="/contact">
+					<Link href={`/${currentLang}/contact`}>
 						<Button variant="primary" showArrow size="lg">
 							Start Your Project
 						</Button>

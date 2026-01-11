@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ProjectCategory } from "@/lib/constants";
+import { useLanguage } from "@/lib/language-context";
 
 interface CategoryCardProps {
 	category: ProjectCategory;
@@ -20,6 +21,7 @@ export function CategoryCard({
 	projectCount = 0,
 	variant = "default",
 }: CategoryCardProps) {
+	const currentLang = useLanguage();
 	const isLarge = variant === "large";
 
 	return (
@@ -68,7 +70,7 @@ export function CategoryCard({
 					</h3>
 
 					<Link
-						href={`/works/${category.id}`}
+						href={`/${currentLang}/works/${category.id}`}
 						className="group/link inline-flex items-center gap-3 text-2xs tracking-wide-lg uppercase font-bold transition-all duration-300 hover:gap-4 focus:outline-none focus:gap-4"
 					>
 						<span className="relative">

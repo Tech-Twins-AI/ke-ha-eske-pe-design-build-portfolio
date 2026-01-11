@@ -9,7 +9,7 @@ export const projectType = defineType({
 		defineField({
 			name: "title",
 			title: "Project Title",
-			type: "string",
+			type: "internationalizedArrayString",
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
@@ -38,8 +38,8 @@ export const projectType = defineType({
 			name: "location",
 			title: "Location",
 			description: "Project location (e.g., Addis Ababa, Bole)",
-			type: "string",
-		  }),
+			type: "internationalizedArrayString",
+		}),
 		defineField({
 			name: "isFeatured",
 			title: "Featured Project",

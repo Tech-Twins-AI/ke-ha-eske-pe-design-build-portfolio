@@ -1,20 +1,37 @@
 import { defineQuery } from "next-sanity";
 
-// Fetch all testimonials
+// ============================================
+// Localized Field Helpers
+// ============================================
+// These GROQ snippets extract values from internationalized arrays
+// with fallback to English if the requested language is not available
+
+// For title field: coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled")
+// For location field: coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value)
+
+// ============================================
+// Testimonials Queries
+// ============================================
+
+// Fetch all testimonials with localized fields
+// Params: { lang: "en" | "am" }
 export const TESTIMONIALS_QUERY = defineQuery(`
   *[_type == "testimonial"] | order(_createdAt desc) {
     _id,
     name,
-    role,
+    "role": coalesce(role[_key == $lang][0].value, role[_key == "en"][0].value),
     company,
-    quote,
+    "quote": coalesce(quote[_key == $lang][0].value, quote[_key == "en"][0].value, ""),
     "avatar": avatar.asset->url
   }
 `);
 
+// ============================================
+// Projects Queries
+// ============================================
+
 // Fetch projects with optional category and isFeatured filters
-// Usage: sanityFetch({ query: PROJECTS_QUERY, params: { category: "exterior", isFeatured: true } })
-// Pass null for params to get all projects
+// Params: { lang: "en" | "am", category?: string, isFeatured?: boolean }
 export const PROJECTS_QUERY = defineQuery(`
   *[_type == "project" 
     && defined(slug.current)
@@ -28,10 +45,10 @@ export const PROJECTS_QUERY = defineQuery(`
     )
   ] | order(_createdAt desc) {
     _id,
-    title,
+    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),
     slug,
     category,
-    location,
+    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),
     isFeatured,
     "featuredImage": featuredImage.asset->{
       url,
@@ -43,10 +60,11 @@ export const PROJECTS_QUERY = defineQuery(`
 `);
 
 // Fetch featured projects only (one per category for homepage showcase)
+// Params: { lang: "en" | "am" }
 export const FEATURED_PROJECTS_QUERY = defineQuery(`
   *[_type == "project" && defined(slug.current) && isFeatured == true] | order(_createdAt desc) {
     _id,
-    title,
+    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),
     slug,
     category,
     "featuredImage": featuredImage.asset->{
@@ -59,13 +77,14 @@ export const FEATURED_PROJECTS_QUERY = defineQuery(`
 `);
 
 // Fetch a single project by slug for the detail page
+// Params: { lang: "en" | "am", slug: string }
 export const PROJECT_QUERY = defineQuery(`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
-    title,
+    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),
     slug,
     category,
-    location,
+    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),
     area,
     year,
     clientName,
@@ -80,6 +99,7 @@ export const PROJECT_QUERY = defineQuery(`
 `);
 
 // Fetch initial page of projects for a category (first page)
+// Params: { lang: "en" | "am", category: string }
 export const PROJECTS_INITIAL_QUERY = defineQuery(`
   *[_type == "project" 
     && defined(slug.current)
@@ -87,10 +107,10 @@ export const PROJECTS_INITIAL_QUERY = defineQuery(`
   ] | order(_createdAt desc) [0...6] {
     _id,
     _createdAt,
-    title,
+    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),
     slug,
     category,
-    location,
+    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),
     "featuredImage": featuredImage.asset->{
       url,
       "width": metadata.dimensions.width,
@@ -102,6 +122,7 @@ export const PROJECTS_INITIAL_QUERY = defineQuery(`
 
 // Fetch next page of projects using cursor-based pagination (more performant)
 // Uses _createdAt as primary sort with _id as tiebreaker for duplicates
+// Params: { lang: "en" | "am", category: string, lastCreatedAt: string, lastId: string }
 export const PROJECTS_CURSOR_QUERY = defineQuery(`
   *[_type == "project" 
     && defined(slug.current)
@@ -113,10 +134,10 @@ export const PROJECTS_CURSOR_QUERY = defineQuery(`
   ] | order(_createdAt desc) [0...6] {
     _id,
     _createdAt,
-    title,
+    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),
     slug,
     category,
-    location,
+    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),
     "featuredImage": featuredImage.asset->{
       url,
       "width": metadata.dimensions.width,
@@ -126,7 +147,8 @@ export const PROJECTS_CURSOR_QUERY = defineQuery(`
   }
 `);
 
-// Count total projects in a category
+// Count total projects in a category (no localization needed)
+// Params: { category: string }
 export const PROJECTS_COUNT_QUERY = defineQuery(`
   count(*[_type == "project" && defined(slug.current) && category == $category])
 `);

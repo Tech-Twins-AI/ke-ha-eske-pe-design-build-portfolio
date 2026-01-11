@@ -20,9 +20,9 @@ export type Testimonial = {
   _updatedAt: string;
   _rev: string;
   name: string;
-  role?: string;
+  role?: InternationalizedArrayString;
   company?: string;
-  quote: string;
+  quote: InternationalizedArrayText;
   avatar?: {
     asset?: {
       _ref: string;
@@ -53,16 +53,24 @@ export type SanityImageHotspot = {
   width: number;
 };
 
+export type InternationalizedArrayText = Array<{
+  _key: string;
+} & InternationalizedArrayTextValue>;
+
+export type InternationalizedArrayString = Array<{
+  _key: string;
+} & InternationalizedArrayStringValue>;
+
 export type Project = {
   _id: string;
   _type: "project";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title: string;
+  title: InternationalizedArrayString;
   slug: Slug;
   category: "exterior" | "interior" | "construction" | "finishing" | "renovation";
-  location?: string;
+  location?: InternationalizedArrayString;
   isFeatured?: boolean;
   featuredImage: {
     asset?: {
@@ -82,6 +90,16 @@ export type Slug = {
   _type: "slug";
   current: string;
   source?: string;
+};
+
+export type InternationalizedArrayTextValue = {
+  _type: "internationalizedArrayTextValue";
+  value?: string;
+};
+
+export type InternationalizedArrayStringValue = {
+  _type: "internationalizedArrayStringValue";
+  value?: string;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -180,24 +198,24 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Testimonial | SanityImageCrop | SanityImageHotspot | Project | Slug | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Testimonial | SanityImageCrop | SanityImageHotspot | InternationalizedArrayText | InternationalizedArrayString | Project | Slug | InternationalizedArrayTextValue | InternationalizedArrayStringValue | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: TESTIMONIALS_QUERY
-// Query: *[_type == "testimonial"] | order(_createdAt desc) {    _id,    name,    role,    company,    quote,    "avatar": avatar.asset->url  }
+// Query: *[_type == "testimonial"] | order(_createdAt desc) {    _id,    name,    "role": coalesce(role[_key == $lang][0].value, role[_key == "en"][0].value),    company,    "quote": coalesce(quote[_key == $lang][0].value, quote[_key == "en"][0].value, ""),    "avatar": avatar.asset->url  }
 export type TESTIMONIALS_QUERYResult = Array<{
   _id: string;
   name: string;
   role: string | null;
   company: string | null;
-  quote: string;
+  quote: string | "";
   avatar: string | null;
 }>;
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project"     && defined(slug.current)    && select(      defined($category) && $category != "" => category == $category,      true    )    && select(      defined($isFeatured) => isFeatured == $isFeatured,      true    )  ] | order(_createdAt desc) {    _id,    title,    slug,    category,    location,    isFeatured,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
+// Query: *[_type == "project"     && defined(slug.current)    && select(      defined($category) && $category != "" => category == $category,      true    )    && select(      defined($isFeatured) => isFeatured == $isFeatured,      true    )  ] | order(_createdAt desc) {    _id,    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),    slug,    category,    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),    isFeatured,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
 export type PROJECTS_QUERYResult = Array<{
   _id: string;
-  title: string;
+  title: string | "Untitled";
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
   location: string | null;
@@ -210,10 +228,10 @@ export type PROJECTS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: FEATURED_PROJECTS_QUERY
-// Query: *[_type == "project" && defined(slug.current) && isFeatured == true] | order(_createdAt desc) {    _id,    title,    slug,    category,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
+// Query: *[_type == "project" && defined(slug.current) && isFeatured == true] | order(_createdAt desc) {    _id,    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),    slug,    category,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
 export type FEATURED_PROJECTS_QUERYResult = Array<{
   _id: string;
-  title: string;
+  title: string | "Untitled";
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
   featuredImage: {
@@ -224,10 +242,10 @@ export type FEATURED_PROJECTS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: PROJECT_QUERY
-// Query: *[_type == "project" && slug.current == $slug][0] {    _id,    title,    slug,    category,    location,    area,    year,    clientName,    description,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
+// Query: *[_type == "project" && slug.current == $slug][0] {    _id,    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),    slug,    category,    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),    area,    year,    clientName,    description,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
 export type PROJECT_QUERYResult = {
   _id: string;
-  title: string;
+  title: string | "Untitled";
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
   location: string | null;
@@ -243,11 +261,11 @@ export type PROJECT_QUERYResult = {
   } | null;
 } | null;
 // Variable: PROJECTS_INITIAL_QUERY
-// Query: *[_type == "project"     && defined(slug.current)    && category == $category  ] | order(_createdAt desc) [0...6] {    _id,    _createdAt,    title,    slug,    category,    location,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
+// Query: *[_type == "project"     && defined(slug.current)    && category == $category  ] | order(_createdAt desc) [0...6] {    _id,    _createdAt,    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),    slug,    category,    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
 export type PROJECTS_INITIAL_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
-  title: string;
+  title: string | "Untitled";
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
   location: string | null;
@@ -259,11 +277,11 @@ export type PROJECTS_INITIAL_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: PROJECTS_CURSOR_QUERY
-// Query: *[_type == "project"     && defined(slug.current)    && category == $category    && (      _createdAt < $lastCreatedAt      || (_createdAt == $lastCreatedAt && _id > $lastId)    )  ] | order(_createdAt desc) [0...6] {    _id,    _createdAt,    title,    slug,    category,    location,    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
+// Query: *[_type == "project"     && defined(slug.current)    && category == $category    && (      _createdAt < $lastCreatedAt      || (_createdAt == $lastCreatedAt && _id > $lastId)    )  ] | order(_createdAt desc) [0...6] {    _id,    _createdAt,    "title": coalesce(title[_key == $lang][0].value, title[_key == "en"][0].value, "Untitled"),    slug,    category,    "location": coalesce(location[_key == $lang][0].value, location[_key == "en"][0].value),    "featuredImage": featuredImage.asset->{      url,      "width": metadata.dimensions.width,      "height": metadata.dimensions.height,      "lqip": metadata.lqip    }  }
 export type PROJECTS_CURSOR_QUERYResult = Array<{
   _id: string;
   _createdAt: string;
-  title: string;
+  title: string | "Untitled";
   slug: Slug;
   category: "construction" | "exterior" | "finishing" | "interior" | "renovation";
   location: string | null;
@@ -282,12 +300,12 @@ export type PROJECTS_COUNT_QUERYResult = number;
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"testimonial\"] | order(_createdAt desc) {\n    _id,\n    name,\n    role,\n    company,\n    quote,\n    \"avatar\": avatar.asset->url\n  }\n": TESTIMONIALS_QUERYResult;
-    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && select(\n      defined($category) && $category != \"\" => category == $category,\n      true\n    )\n    && select(\n      defined($isFeatured) => isFeatured == $isFeatured,\n      true\n    )\n  ] | order(_createdAt desc) {\n    _id,\n    title,\n    slug,\n    category,\n    location,\n    isFeatured,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_QUERYResult;
-    "\n  *[_type == \"project\" && defined(slug.current) && isFeatured == true] | order(_createdAt desc) {\n    _id,\n    title,\n    slug,\n    category,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": FEATURED_PROJECTS_QUERYResult;
-    "\n  *[_type == \"project\" && slug.current == $slug][0] {\n    _id,\n    title,\n    slug,\n    category,\n    location,\n    area,\n    year,\n    clientName,\n    description,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECT_QUERYResult;
-    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && category == $category\n  ] | order(_createdAt desc) [0...6] {\n    _id,\n    _createdAt,\n    title,\n    slug,\n    category,\n    location,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_INITIAL_QUERYResult;
-    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && category == $category\n    && (\n      _createdAt < $lastCreatedAt\n      || (_createdAt == $lastCreatedAt && _id > $lastId)\n    )\n  ] | order(_createdAt desc) [0...6] {\n    _id,\n    _createdAt,\n    title,\n    slug,\n    category,\n    location,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_CURSOR_QUERYResult;
+    "\n  *[_type == \"testimonial\"] | order(_createdAt desc) {\n    _id,\n    name,\n    \"role\": coalesce(role[_key == $lang][0].value, role[_key == \"en\"][0].value),\n    company,\n    \"quote\": coalesce(quote[_key == $lang][0].value, quote[_key == \"en\"][0].value, \"\"),\n    \"avatar\": avatar.asset->url\n  }\n": TESTIMONIALS_QUERYResult;
+    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && select(\n      defined($category) && $category != \"\" => category == $category,\n      true\n    )\n    && select(\n      defined($isFeatured) => isFeatured == $isFeatured,\n      true\n    )\n  ] | order(_createdAt desc) {\n    _id,\n    \"title\": coalesce(title[_key == $lang][0].value, title[_key == \"en\"][0].value, \"Untitled\"),\n    slug,\n    category,\n    \"location\": coalesce(location[_key == $lang][0].value, location[_key == \"en\"][0].value),\n    isFeatured,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_QUERYResult;
+    "\n  *[_type == \"project\" && defined(slug.current) && isFeatured == true] | order(_createdAt desc) {\n    _id,\n    \"title\": coalesce(title[_key == $lang][0].value, title[_key == \"en\"][0].value, \"Untitled\"),\n    slug,\n    category,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": FEATURED_PROJECTS_QUERYResult;
+    "\n  *[_type == \"project\" && slug.current == $slug][0] {\n    _id,\n    \"title\": coalesce(title[_key == $lang][0].value, title[_key == \"en\"][0].value, \"Untitled\"),\n    slug,\n    category,\n    \"location\": coalesce(location[_key == $lang][0].value, location[_key == \"en\"][0].value),\n    area,\n    year,\n    clientName,\n    description,\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECT_QUERYResult;
+    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && category == $category\n  ] | order(_createdAt desc) [0...6] {\n    _id,\n    _createdAt,\n    \"title\": coalesce(title[_key == $lang][0].value, title[_key == \"en\"][0].value, \"Untitled\"),\n    slug,\n    category,\n    \"location\": coalesce(location[_key == $lang][0].value, location[_key == \"en\"][0].value),\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_INITIAL_QUERYResult;
+    "\n  *[_type == \"project\" \n    && defined(slug.current)\n    && category == $category\n    && (\n      _createdAt < $lastCreatedAt\n      || (_createdAt == $lastCreatedAt && _id > $lastId)\n    )\n  ] | order(_createdAt desc) [0...6] {\n    _id,\n    _createdAt,\n    \"title\": coalesce(title[_key == $lang][0].value, title[_key == \"en\"][0].value, \"Untitled\"),\n    slug,\n    category,\n    \"location\": coalesce(location[_key == $lang][0].value, location[_key == \"en\"][0].value),\n    \"featuredImage\": featuredImage.asset->{\n      url,\n      \"width\": metadata.dimensions.width,\n      \"height\": metadata.dimensions.height,\n      \"lqip\": metadata.lqip\n    }\n  }\n": PROJECTS_CURSOR_QUERYResult;
     "\n  count(*[_type == \"project\" && defined(slug.current) && category == $category])\n": PROJECTS_COUNT_QUERYResult;
   }
 }

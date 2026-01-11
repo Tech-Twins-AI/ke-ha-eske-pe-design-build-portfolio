@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 import logo from "@/public/logo-white.svg";
 
@@ -14,9 +17,10 @@ interface BrandProps {
 export function Brand({ variant = "full", className, logoSize = 52 }: BrandProps) {
 	const showName = variant !== "logo";
 	const showTagline = variant === "full";
+	const currentLang = useLanguage();
 
 	return (
-		<Link href="/" className={cn("flex items-center gap-3 md:gap-5", className)}>
+		<Link href={`/${currentLang}`} className={cn("flex items-center gap-3 md:gap-5", className)}>
 			{/* Logo */}
 			<div className="shrink-0 rounded-full overflow-hidden bg-background shadow-sm border border-border flex items-center justify-center transition-transform duration-500 hover:scale-105">
 				<Image
