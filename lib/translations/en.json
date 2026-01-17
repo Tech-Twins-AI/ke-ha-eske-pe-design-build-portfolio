@@ -35,6 +35,14 @@
 			"quote": "Ensuring what is on the paper is perfectly delivered on the ground."
 		}
 	},
+	"atmosphericDivider": {
+		"title": "Crafting Reality",
+		"subtitle": "Precision In Every Line"
+	},
+	"works": {
+		"title": "OUR WORK",
+		"description": "From initial design to final finishing. We deliver complete, end-to-end building solutions. Browse our work by category."
+	},
 	"testimonials": {
 		"title": "WHAT THEY SAY ABOUT US",
 		"dragHint": "Drag to explore"
@@ -108,6 +116,10 @@
 		"expertisePhase": "Expertise Phase",
 		"leadershipLabel": "Leadership",
 		"leadershipTitle": "The Architect"
+	},
+	"metadata": {
+		"title": "Ke Ha Eske Pe Design And Build",
+		"description": "Ke Ha Eske Pe Design and Build - From design to construction, we deliver your vision with precision."
 	},
 	"contact": {
 		"sectionLabel": "Get In Touch",

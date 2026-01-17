@@ -45,8 +45,11 @@ const notoSansEthiopic = Noto_Sans_Ethiopic({
 });
 
 export const metadata: Metadata = {
-	title: "Ke Ha Eske Pe Design And Build",
-	description: "Ke Ha Eske Pe Design and Build | ከሀ እስከ ፐ - ንድፍ እና ግንባታ",
+	title: {
+		template: "%s | Ke Ha Eske Pe",
+		default: "Ke Ha Eske Pe Design And Build",
+	},
+	description: "Ke Ha Eske Pe Design and Build - From design to construction, we deliver your vision with precision.",
 };
 
 export default function RootLayout({

@@ -1,12 +1,26 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer, Navbar } from "@/components/layout";
 import { LanguageProvider } from "@/lib/language-context";
+import { getTranslations } from "@/lib/translations";
 import { type Language, languageIds } from "@/sanity/lib/languages";
 import { SanityLive } from "@/sanity/lib/live";
 
 interface LangLayoutProps {
 	children: React.ReactNode;
 	params: Promise<{ lang: string }>;
+}
+
+export async function generateMetadata({
+	params,
+}: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+	const { lang } = await params;
+	const t = getTranslations(lang as Language);
+
+	return {
+		title: t.metadata.title,
+		description: t.metadata.description,
+	};
 }
 
 export default async function LangLayout({ children, params }: LangLayoutProps) {

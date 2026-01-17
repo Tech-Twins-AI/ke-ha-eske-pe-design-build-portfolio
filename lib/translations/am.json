@@ -35,6 +35,14 @@
 			"quote": "በወረቀት ላይ ያለውን በመሬት ላይ በትክክል ማቅረብ።"
 		}
 	},
+	"atmosphericDivider": {
+		"title": "እውነታን መቅረጽ",
+		"subtitle": "በእያንዳንዱ መስመር ትክክለኛነት"
+	},
+	"works": {
+		"title": "ስራዎቻችን",
+		"description": "ከመጀመሪያው ንድፍ እስከ መጨረሻው ማጠናቀቂያ። ሙሉ፣ ከጫፍ እስከ ጫፍ የግንባታ መፍትሄዎችን እናቀርባለን። ስራዎቻችንን በምድብ ይመልከቱ።"
+	},
 	"testimonials": {
 		"title": "ስለ እኛ ምን ይላሉ",
 		"dragHint": "ለማሰስ ይጎትቱ"
@@ -108,6 +116,10 @@
 		"expertisePhase": "የባለሙያ ደረጃ",
 		"leadershipLabel": "አመራር",
 		"leadershipTitle": "አርክቴክቱ"
+	},
+	"metadata": {
+		"title": "ከሀ እስከ ፐ ንድፍ እና ግንባታ",
+		"description": "ከሀ እስከ ፐ ንድፍ እና ግንባታ - ከንድፍ እስከ ግንባታ፣ ራዕይዎን በትክክለኛነት እናቀርባለን።"
 	},
 	"contact": {
 		"sectionLabel": "ያግኙን",
