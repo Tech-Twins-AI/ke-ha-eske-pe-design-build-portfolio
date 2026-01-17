@@ -87,6 +87,11 @@
 		"readMore": "ተጨማሪ አንብብ",
 		"readLess": "ያነሰ አንብብ"
 	},
+	"notFound": {
+		"title": "ገጹ አልተገኘም",
+		"description": "የሚፈልጉት ገጽ የለም ወይም ተዛውሯል።",
+		"backHome": "ወደ መነሻ ተመለስ"
+	},
 	"about": {
 		"heroTitle": "ጥቂት",
 		"heroTitleHighlight": "ስለ እኛ",

@@ -2,16 +2,23 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui";
 import { fontVariables } from "@/lib/fonts";
+import { getTranslations } from "@/lib/translations";
+import type { Language } from "@/sanity/lib/languages";
 
 export default function NotFound() {
+	const pathname = usePathname();
+	const langFromPath = pathname?.split("/")[1];
+	const lang: Language = langFromPath === "am" ? "am" : "en";
+	const t = getTranslations(lang);
+
 	return (
-		<html lang="en">
+		<html lang={lang}>
 			<body className={`${fontVariables} antialiased`}>
 				<main className="min-h-screen bg-background flex items-center justify-center px-6">
 					<div className="text-center max-w-md">
-						{/* 404 Number */}
 						<motion.div
 							initial={{ opacity: 0, scale: 0.9 }}
 							animate={{ opacity: 1, scale: 1 }}
@@ -22,7 +29,6 @@ export default function NotFound() {
 							</span>
 						</motion.div>
 
-						{/* Content */}
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -30,19 +36,16 @@ export default function NotFound() {
 							className="-mt-20 md:-mt-28"
 						>
 							<h1 className="text-2xl md:text-3xl font-bold tracking-tight uppercase mb-4">
-								Page Not Found
+								{t.notFound.title}
 							</h1>
 
-							<p className="text-secondary font-light mb-8">
-								The page you&apos;re looking for doesn&apos;t exist or has been moved.
-							</p>
+							<p className="text-secondary font-light mb-8">{t.notFound.description}</p>
 
-							<Link href="/">
-								<Button variant="outline">Back to Home</Button>
+							<Link href={`/${lang}`}>
+								<Button variant="outline">{t.notFound.backHome}</Button>
 							</Link>
 						</motion.div>
 
-						{/* Divider */}
 						<motion.div
 							initial={{ scaleX: 0 }}
 							animate={{ scaleX: 1 }}
