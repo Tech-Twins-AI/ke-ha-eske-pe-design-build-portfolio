@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ProjectCategory } from "@/lib/constants";
 import { useLanguage } from "@/lib/language-context";
+import { useTranslations } from "@/lib/translations";
 
 interface CategoryCardProps {
 	category: ProjectCategory;
@@ -22,6 +23,7 @@ export function CategoryCard({
 	variant = "default",
 }: CategoryCardProps) {
 	const currentLang = useLanguage();
+	const t = useTranslations();
 	const isLarge = variant === "large";
 
 	return (
@@ -58,7 +60,7 @@ export function CategoryCard({
 			>
 				<div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-focus-within:-translate-y-2">
 					<p className="text-label tracking-wide-sm uppercase text-primary-foreground/80 mb-3 font-bold">
-						{projectCount} {projectCount === 1 ? "Project" : "Projects"}
+						{projectCount} {projectCount === 1 ? t.works.project : t.works.projects}
 					</p>
 
 					<h3
@@ -74,7 +76,7 @@ export function CategoryCard({
 						className="group/link inline-flex items-center gap-3 text-2xs tracking-wide-lg uppercase font-bold transition-all duration-300 hover:gap-4 focus:outline-none focus:gap-4"
 					>
 						<span className="relative">
-							View More
+							{t.works.viewMore}
 							<span className="absolute left-0 -bottom-1 w-0 h-px bg-current transition-all duration-300 group-hover/link:w-full group-focus/link:w-full" />
 						</span>
 						<ArrowRight size={14} />

@@ -41,7 +41,10 @@
 	},
 	"works": {
 		"title": "OUR WORK",
-		"description": "From initial design to final finishing. We deliver complete, end-to-end building solutions. Browse our work by category."
+		"description": "From initial design to final finishing. We deliver complete, end-to-end building solutions. Browse our work by category.",
+		"project": "Project",
+		"projects": "Projects",
+		"viewMore": "View More"
 	},
 	"testimonials": {
 		"title": "WHAT THEY SAY ABOUT US",
