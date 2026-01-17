@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import type { ProjectCategory } from "@/lib/constants";
+import type { WithLanguage } from "@/types";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 20 },
@@ -22,11 +23,11 @@ const staggerContainer = {
 	},
 };
 
-interface CategoryHeaderProps {
+interface CategoryHeaderProps extends WithLanguage {
 	categoryData: ProjectCategory;
 }
 
-export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
+export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
 	return (
 		<motion.section
 			initial="hidden"
@@ -38,7 +39,7 @@ export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
 				{/* Breadcrumb */}
 				<motion.div variants={fadeUp} className="mb-8">
 					<Link
-						href="/#work"
+						href={`/${lang}/#work`}
 						className="text-label tracking-wide-xl uppercase text-secondary font-bold hover:text-foreground transition-colors inline-flex items-center gap-2"
 					>
 						<ArrowLeft size={16} />

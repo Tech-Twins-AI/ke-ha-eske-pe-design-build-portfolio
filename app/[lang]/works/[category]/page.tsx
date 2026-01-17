@@ -48,7 +48,7 @@ export default async function CategoryPage({ params }: LangPageWithCategoryProps
 	return (
 		<main className="bg-background pt-32 pb-20 md:pb-24 min-h-screen">
 			{/* Header - renders immediately */}
-			<CategoryHeader categoryData={categoryData} />
+			<CategoryHeader categoryData={categoryData} lang={lang as Language} />
 
 			{/* Projects Grid - with Suspense */}
 			<section className="px-6 md:px-12">
