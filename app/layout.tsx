@@ -49,7 +49,8 @@ export const metadata: Metadata = {
 		template: "%s | Ke Ha Eske Pe",
 		default: "Ke Ha Eske Pe Design And Build",
 	},
-	description: "Ke Ha Eske Pe Design and Build - From design to construction, we deliver your vision with precision.",
+	description:
+		"Ke Ha Eske Pe Design and Build - From design to construction, we deliver your vision with precision.",
 };
 
 export default function RootLayout({

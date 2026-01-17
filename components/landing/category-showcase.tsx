@@ -33,9 +33,7 @@ export function CategoryShowcase({ featuredProjects, projectCounts }: CategorySh
 					<h2 className="text-3xl md:text-5xl font-bold tracking-wide-lg mb-6 uppercase leading-relaxed">
 						{t.works.title}
 					</h2>
-					<p className="text-secondary text-lg max-w-2xl mx-auto mb-8">
-						{t.works.description}
-					</p>
+					<p className="text-secondary text-lg max-w-2xl mx-auto mb-8">{t.works.description}</p>
 					<div className="w-12 h-[2px] bg-foreground mx-auto" />
 				</motion.div>
 
