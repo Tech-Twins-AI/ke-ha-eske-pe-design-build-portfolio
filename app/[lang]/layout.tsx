@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Footer, Navbar } from "@/components/layout";
+import { fontVariables } from "@/lib/fonts";
 import { LanguageProvider } from "@/lib/language-context";
 import { getTranslations } from "@/lib/translations";
 import { type Language, languageIds } from "@/sanity/lib/languages";
@@ -34,11 +35,15 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
 	}
 
 	return (
-		<LanguageProvider lang={lang as Language}>
-			<Navbar />
-			{children}
-			<Footer />
-			<SanityLive />
-		</LanguageProvider>
+		<html lang={lang} data-scroll-behavior="smooth">
+			<body className={`${fontVariables} antialiased`}>
+				<LanguageProvider lang={lang as Language}>
+					<Navbar />
+					{children}
+					<Footer />
+					<SanityLive />
+				</LanguageProvider>
+			</body>
+		</html>
 	);
 }
