@@ -30,6 +30,7 @@ interface CategoryHeaderProps extends WithLanguage {
 
 export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
 	const t = useTranslations();
+	const categoryTranslation = t.categories[categoryData.id as keyof typeof t.categories];
 
 	return (
 		<motion.section
@@ -55,12 +56,12 @@ export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
 					variants={fadeUp}
 					className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-6"
 				>
-					{categoryData.label}
+					{categoryTranslation.label}
 				</motion.h1>
 
 				{/* Description */}
 				<motion.p variants={fadeUp} className="text-xl text-secondary max-w-2xl leading-relaxed">
-					{categoryData.description}
+					{categoryTranslation.description}
 				</motion.p>
 
 				{/* Divider */}

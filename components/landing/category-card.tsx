@@ -25,6 +25,7 @@ export function CategoryCard({
 	const currentLang = useLanguage();
 	const t = useTranslations();
 	const isLarge = variant === "large";
+	const categoryTranslation = t.categories[category.id as keyof typeof t.categories];
 
 	return (
 		<motion.div
@@ -41,7 +42,7 @@ export function CategoryCard({
 			{featuredImage && (
 				<Image
 					src={featuredImage}
-					alt={category.label}
+					alt={categoryTranslation.label}
 					fill
 					sizes="(max-width: 768px) 100vw, 50vw"
 					className="object-cover transition-all duration-700 ease-out grayscale group-hover:grayscale-0 group-focus-within:grayscale-0 group-hover:scale-105 group-focus-within:scale-105"
@@ -68,7 +69,7 @@ export function CategoryCard({
 							isLarge ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"
 						}`}
 					>
-						{category.label}
+						{categoryTranslation.label}
 					</h3>
 
 					<Link

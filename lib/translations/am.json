@@ -61,6 +61,28 @@
 	"category": {
 		"backToWork": "ስራዎቻችን"
 	},
+	"categories": {
+		"exterior": {
+			"label": "የውጭ ንድፎች",
+			"description": "የፊት ገጽ ንድፎች፣ የውጭ ቦታ ማስዋብ፣ እና የውጭ ስነ-ህንፃ ንጥረ ነገሮች።"
+		},
+		"interior": {
+			"label": "የውስጥ ንድፎች",
+			"description": "የቦታ እቅድ፣ የክፍል ዝርዝሮች፣ እና ለመኖሪያና ለንግድ ቦታዎች የውስጥ ማስዋብ።"
+		},
+		"construction": {
+			"label": "ግንባታ",
+			"description": "አዲስ ግንባታዎች፣ የመዋቅር ስራዎች፣ እና ከመሬት ጀምሮ የሚገነቡ ፕሮጀክቶች።"
+		},
+		"finishing": {
+			"label": "የማጠናቀቂያ ስራ",
+			"description": "ወለል ማንጠፊያ፣ ቀለም መቀባት፣ ማስዋቢያ ስራዎች፣ እና የመጨረሻ ጭነት ዝርዝሮች።"
+		},
+		"renovation": {
+			"label": "እድሳት",
+			"description": "መልሶ ማደስ፣ መጠገን፣ እና ነባር ህንፃዎችንና ቦታዎችን ማሻሻል።"
+		}
+	},
 	"common": {
 		"readMore": "ተጨማሪ አንብብ",
 		"readLess": "ያነሰ አንብብ"

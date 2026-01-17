@@ -61,6 +61,28 @@
 	"category": {
 		"backToWork": "Our Work"
 	},
+	"categories": {
+		"exterior": {
+			"label": "Exterior Designs",
+			"description": "Facade designs, outdoor landscaping, and external architectural elements."
+		},
+		"interior": {
+			"label": "Interior Designs",
+			"description": "Space planning, room layouts, and interior styling for residential and commercial spaces."
+		},
+		"construction": {
+			"label": "Construction",
+			"description": "New builds, structural work, and ground-up construction projects."
+		},
+		"finishing": {
+			"label": "Finishing Work",
+			"description": "Flooring, painting, trim work, and final installation details."
+		},
+		"renovation": {
+			"label": "Renovation",
+			"description": "Remodeling, restoration, and upgrades to existing buildings and spaces."
+		}
+	},
 	"common": {
 		"readMore": "Read more",
 		"readLess": "Read less"
