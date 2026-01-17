@@ -98,7 +98,9 @@ export function Footer() {
 
 				{/* Copyright */}
 				<div className="text-center text-xs tracking-wide-lg uppercase">
-					<p className="mb-6 font-bold text-accent-foreground">{t.footer.company} © {currentYear}</p>
+					<p className="mb-6 font-bold text-accent-foreground">
+						{t.footer.company} © {currentYear}
+					</p>
 					<p className="text-gray-400 font-light max-w-xs mx-auto leading-loose">
 						{t.footer.tagline}
 					</p>

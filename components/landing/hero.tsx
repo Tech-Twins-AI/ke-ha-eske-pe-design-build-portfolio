@@ -63,7 +63,9 @@ export function Hero() {
 					<div className="font-amharic text-secondary text-lg md:text-xl mb-1 tracking-widest opacity-60">
 						{t.hero.beginningLabel}
 					</div>
-					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">{t.hero.beginningTitle}</h1>
+					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+						{t.hero.beginningTitle}
+					</h1>
 					<p className="text-lg md:text-xl max-w-sm mx-auto leading-relaxed text-secondary/80">
 						{t.hero.beginningDescription}
 					</p>

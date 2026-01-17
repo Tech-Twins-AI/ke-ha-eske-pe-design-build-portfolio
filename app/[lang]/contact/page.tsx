@@ -240,9 +240,7 @@ export default function ContactPage() {
 								>
 									<CheckCircle size={64} className="text-foreground mb-8" />
 									<h4 className="text-2xl font-bold mb-4">{t.contact.success.title}</h4>
-									<p className="text-secondary mb-6">
-										{t.contact.success.description}
-									</p>
+									<p className="text-secondary mb-6">{t.contact.success.description}</p>
 									<button
 										type="button"
 										onClick={handleReset}

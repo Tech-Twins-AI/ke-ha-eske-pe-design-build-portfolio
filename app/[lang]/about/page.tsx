@@ -108,7 +108,8 @@ export default function AboutPage() {
 						variants={fadeUp}
 						className="text-5xl md:text-6xl font-bold tracking-tighter uppercase mb-8"
 					>
-						{t.about.heroTitle} <span className="block text-secondary">{t.about.heroTitleHighlight}</span>
+						{t.about.heroTitle}{" "}
+						<span className="block text-secondary">{t.about.heroTitleHighlight}</span>
 					</motion.h1>
 					<motion.div
 						initial={{ scaleX: 0 }}
