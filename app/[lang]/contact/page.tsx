@@ -6,27 +6,7 @@ import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { type ContactFormState, sendContactEmail } from "@/app/actions";
 import { Button, Input, Textarea } from "@/components/ui";
-
-const contactItems = [
-	{
-		icon: Phone,
-		label: "Phone",
-		value: "+251 922 451 812",
-		href: "tel:+251922451812",
-	},
-	{
-		icon: Mail,
-		label: "Email",
-		value: "kehaeskepedesignandbuild@gmail.com",
-		href: "mailto:kehaeskepedesignandbuild@gmail.com",
-	},
-	{
-		icon: MapPin,
-		label: "Location",
-		value: "Addis Ababa, Ethiopia",
-		href: "https://maps.app.goo.gl/xhuiKiiySgGYGP7H9",
-	},
-];
+import { useTranslations } from "@/lib/translations";
 
 // Animation variants for consistent fade + slide-up
 const fadeUp = {
@@ -63,6 +43,28 @@ const initialState: ContactFormState = {
 export default function ContactPage() {
 	const [state, formAction, isPending] = useActionState(sendContactEmail, initialState);
 	const [showSuccess, setShowSuccess] = useState(false);
+	const t = useTranslations();
+
+	const contactItems = [
+		{
+			icon: Phone,
+			label: t.contact.labels.phone,
+			value: "+251 922 451 812",
+			href: "tel:+251922451812",
+		},
+		{
+			icon: Mail,
+			label: t.contact.labels.email,
+			value: "kehaeskepedesignandbuild@gmail.com",
+			href: "mailto:kehaeskepedesignandbuild@gmail.com",
+		},
+		{
+			icon: MapPin,
+			label: t.contact.labels.location,
+			value: "Addis Ababa, Ethiopia",
+			href: "https://maps.app.goo.gl/xhuiKiiySgGYGP7H9",
+		},
+	];
 
 	// Show success message when form submission succeeds
 	useEffect(() => {
@@ -92,13 +94,13 @@ export default function ContactPage() {
 							variants={fadeUp}
 							className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold"
 						>
-							Get In Touch
+							{t.contact.sectionLabel}
 						</motion.p>
 						<motion.h1
 							variants={fadeUp}
 							className="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-12"
 						>
-							Let&apos;s Build <span className="block">Together</span>
+							{t.contact.title} <span className="block">{t.contact.titleHighlight}</span>
 						</motion.h1>
 
 						<motion.div
@@ -163,8 +165,8 @@ export default function ContactPage() {
 										<Input
 											id="name"
 											name="name"
-											label="Your Name"
-											placeholder="John Doe"
+											label={t.contact.form.name}
+											placeholder={t.contact.form.namePlaceholder}
 											required
 											type="text"
 											defaultValue={state.data?.name}
@@ -181,8 +183,8 @@ export default function ContactPage() {
 										<Input
 											id="email"
 											name="email"
-											label="Email Address"
-											placeholder="john@example.com"
+											label={t.contact.form.email}
+											placeholder={t.contact.form.emailPlaceholder}
 											required
 											type="email"
 											defaultValue={state.data?.email}
@@ -199,8 +201,8 @@ export default function ContactPage() {
 										<Textarea
 											id="message"
 											name="message"
-											label="Tell us about your vision"
-											placeholder="I need help with..."
+											label={t.contact.form.message}
+											placeholder={t.contact.form.messagePlaceholder}
 											required
 											rows={4}
 											defaultValue={state.data?.message}
@@ -223,7 +225,7 @@ export default function ContactPage() {
 											<Loader2 className="w-5 h-5 animate-spin" />
 										) : (
 											<span className="flex items-center gap-3">
-												Send Message
+												{t.contact.form.submit}
 												<Send size={16} />
 											</span>
 										)}
@@ -237,16 +239,16 @@ export default function ContactPage() {
 									className="flex flex-col items-center justify-center text-center p-12 bg-muted border border-foreground/5 h-full min-h-[500px]"
 								>
 									<CheckCircle size={64} className="text-foreground mb-8" />
-									<h4 className="text-2xl font-bold mb-4">Message Sent Successfully!</h4>
+									<h4 className="text-2xl font-bold mb-4">{t.contact.success.title}</h4>
 									<p className="text-secondary mb-6">
-										We&apos;ll get back to you as soon as possible.
+										{t.contact.success.description}
 									</p>
 									<button
 										type="button"
 										onClick={handleReset}
 										className="text-label tracking-wide-lg uppercase font-bold underline underline-offset-8"
 									>
-										Send another message
+										{t.contact.success.sendAnother}
 									</button>
 								</motion.div>
 							)}

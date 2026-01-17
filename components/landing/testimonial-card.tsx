@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Quote } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "@/lib/translations";
 import type { TESTIMONIALS_QUERYResult } from "@/sanity/types";
 
 // Generate initials from name
@@ -27,6 +28,7 @@ export function TestimonialCard({
 }: TESTIMONIALS_QUERYResult[number]) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const isLongQuote = quote.length > QUOTE_THRESHOLD;
+	const t = useTranslations();
 
 	return (
 		<div className="relative p-10 border border-foreground/5 bg-muted/30 flex flex-col group transition-all duration-500 hover:bg-background hover:shadow-xl hover:shadow-foreground/5">
@@ -68,11 +70,11 @@ export function TestimonialCard({
 					>
 						{isExpanded ? (
 							<>
-								Read less <ChevronUp size={12} />
+								{t.common.readLess} <ChevronUp size={12} />
 							</>
 						) : (
 							<>
-								Read more <ChevronDown size={12} />
+								{t.common.readMore} <ChevronDown size={12} />
 							</>
 						)}
 					</button>

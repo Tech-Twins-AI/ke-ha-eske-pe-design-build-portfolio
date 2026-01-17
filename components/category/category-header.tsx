@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import type { ProjectCategory } from "@/lib/constants";
+import { useTranslations } from "@/lib/translations";
 import type { WithLanguage } from "@/types";
 
 const fadeUp = {
@@ -28,6 +29,8 @@ interface CategoryHeaderProps extends WithLanguage {
 }
 
 export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
+	const t = useTranslations();
+
 	return (
 		<motion.section
 			initial="hidden"
@@ -43,7 +46,7 @@ export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
 						className="text-label tracking-wide-xl uppercase text-secondary font-bold hover:text-foreground transition-colors inline-flex items-center gap-2"
 					>
 						<ArrowLeft size={16} />
-						<span>Our Work</span>
+						<span>{t.category.backToWork}</span>
 					</Link>
 				</motion.div>
 

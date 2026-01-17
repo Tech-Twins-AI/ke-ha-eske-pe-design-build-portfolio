@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Button } from "@/components/ui";
 import { useLanguage } from "@/lib/language-context";
+import { useTranslations } from "@/lib/translations";
 
 // ============================================
 // Animation Variants
@@ -54,6 +55,7 @@ export interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose, navItems, phone }: MobileMenuProps) {
 	const currentLang = useLanguage();
+	const t = useTranslations();
 
 	return (
 		<AnimatePresence>
@@ -85,7 +87,7 @@ export function MobileMenu({ isOpen, onClose, navItems, phone }: MobileMenuProps
 								className="text-4xl font-bold tracking-tighter hover:text-secondary transition-colors"
 							>
 								<Button variant="outline" onClick={onClose}>
-									Consult
+									{t.nav.consult}
 								</Button>
 							</Link>
 						</motion.div>

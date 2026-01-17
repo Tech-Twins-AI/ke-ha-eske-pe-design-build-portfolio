@@ -3,21 +3,24 @@
 import { Square } from "lucide-react";
 import { motion } from "motion/react";
 import { AnimatedCounter } from "@/components/ui";
+import { useTranslations } from "@/lib/translations";
 
 export function Philosophy() {
+	const t = useTranslations();
+
 	const stats = [
 		{
-			label: "SUCCESSFUL\nPROJECTS",
+			label: t.philosophy.stats.projects,
 			value: 100,
 			suffix: "+",
 		},
 		{
-			label: "SATISFIED\nCLIENTS",
+			label: t.philosophy.stats.clients,
 			value: 50,
 			suffix: "+",
 		},
 		{
-			label: "YEARS\nEXPERIENCE",
+			label: t.philosophy.stats.experience,
 			value: 10,
 			suffix: "+",
 		},
@@ -37,12 +40,12 @@ export function Philosophy() {
 						>
 							{/* Section Label */}
 							<h2 className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold">
-								OUR PHILOSOPHY
+								{t.philosophy.sectionLabel}
 							</h2>
 
 							{/* Main Heading */}
 							<h3 className="text-4xl md:text-5xl font-bold tracking-tighter leading-tight mb-8">
-								The Visionary Alphabet
+								{t.philosophy.title}
 							</h3>
 
 							{/* Divider */}
@@ -50,10 +53,7 @@ export function Philosophy() {
 
 							{/* Description */}
 							<p className="text-lg text-secondary leading-relaxed mb-10">
-								The name 'Ke Ha Eske Pe' (<span className="font-amharic">ከሀ እስከ ፐ</span>) signifies
-								the complete Amharic alphabet. It represents our core notion: bridging the gap
-								between design and construction to ensure your vision remains uncompromised from the
-								first letter to the last.
+								{t.philosophy.description}
 							</p>
 
 							{/* Stats Grid */}
@@ -86,23 +86,19 @@ export function Philosophy() {
 						>
 							<div className="space-y-4">
 								<h4 className="text-xl font-bold tracking-tight uppercase">
-									Bridging The Fragmentation
+									{t.philosophy.bridging.title}
 								</h4>
 								<p className="text-secondary leading-relaxed">
-									In traditional projects, design and construction are often handled by separate
-									entities. This fragmentation frequently leads to miscommunication, budget
-									overruns, and undesired outputs that deviate from the original intent.
+									{t.philosophy.bridging.description}
 								</p>
 							</div>
 
 							<div className="space-y-4">
 								<h4 className="text-xl font-bold tracking-tight uppercase">
-									Single-Point Accountability
+									{t.philosophy.accountability.title}
 								</h4>
 								<p className="text-secondary leading-relaxed">
-									We serve as your single contract point. By overseeing everything from the initial
-									design stage through heavy construction and final furnishing, we eliminate
-									friction and guarantee the quality of the final result.
+									{t.philosophy.accountability.description}
 								</p>
 							</div>
 						</motion.div>
@@ -120,13 +116,11 @@ export function Philosophy() {
 									<div className="flex items-center gap-3 mb-4">
 										<Square size={18} className="text-foreground" />
 										<h4 className="text-sm font-bold tracking-wide-sm uppercase">
-											From Paper To Ground
+											{t.philosophy.paperToGround.label}
 										</h4>
 									</div>
 									<p className="text-secondary leading-relaxed">
-										Our primary mission is to ensure that every stroke on the blueprint is
-										translated with absolute fidelity onto the physical site. We don't just design;
-										we deliver the reality exactly as it was envisioned.
+										{t.philosophy.paperToGround.description}
 									</p>
 								</div>
 
@@ -136,7 +130,7 @@ export function Philosophy() {
 								{/* Quote */}
 								<div className="flex-1 flex items-center justify-center">
 									<p className="text-xl md:text-2xl italic text-foreground font-light leading-relaxed">
-										Ensuring what is on the paper is perfectly delivered on the ground.
+										{t.philosophy.paperToGround.quote}
 									</p>
 								</div>
 							</div>

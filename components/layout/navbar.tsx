@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Brand } from "@/components/brand";
 import { useLanguage } from "@/lib/language-context";
+import { useTranslations } from "@/lib/translations";
 import { cn } from "@/lib/utils";
 import { LanguageToggle } from "../language-toggle";
 import { Button } from "../ui";
@@ -20,6 +21,7 @@ export function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
 	const pathname = usePathname();
 	const currentLang = useLanguage();
+	const t = useTranslations();
 
 	// Check if we're on the home page (just /en or /am)
 	const isHome = pathname === `/${currentLang}` || pathname === `/${currentLang}/`;
@@ -45,8 +47,8 @@ export function Navbar() {
 
 	// Navigation items with language prefix
 	const navItems = [
-		{ label: "Work", href: `/${currentLang}#work` },
-		{ label: "About", href: `/${currentLang}/about` },
+		{ label: t.nav.work, href: `/${currentLang}#work` },
+		{ label: t.nav.about, href: `/${currentLang}/about` },
 	];
 
 	const phone = "+251922451812";
@@ -93,7 +95,7 @@ export function Navbar() {
 									: "border-foreground text-foreground hover:bg-foreground hover:text-background",
 							)}
 						>
-							Consult
+							{t.nav.consult}
 						</Button>
 					</Link>
 
