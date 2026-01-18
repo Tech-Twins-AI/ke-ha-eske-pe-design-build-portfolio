@@ -2,9 +2,9 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui";
 import { getTranslations } from "@/lib/translations";
-import { usePathname } from "next/navigation";
 import type { Language } from "@/sanity/lib/languages";
 
 export function NotFoundContent() {
