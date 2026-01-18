@@ -19,6 +19,16 @@ export function NotFoundContent() {
 				<main className="min-h-screen bg-background flex items-center justify-center px-6">
 					<div className="text-center max-w-md">
 						<motion.div
+							initial={{ opacity: 0, scale: 0.9 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.6, ease: "easeOut" }}
+						>
+							<span className="text-[12rem] md:text-[16rem] font-bold tracking-tighter leading-none text-foreground/5 select-none">
+								404
+							</span>
+						</motion.div>
+
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
