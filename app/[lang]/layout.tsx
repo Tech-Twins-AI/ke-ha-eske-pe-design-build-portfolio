@@ -36,7 +36,7 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
 
 	return (
 		<html lang={lang} data-scroll-behavior="smooth">
-			<body className={`${fontVariables} antialiased`}>
+			<body className={`${fontVariables} antialiased ${lang === "am" ? "font-amharic" : ""}`}>
 				<LanguageProvider lang={lang as Language}>
 					<Navbar />
 					{children}
