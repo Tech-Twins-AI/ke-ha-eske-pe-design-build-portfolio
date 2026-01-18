@@ -80,7 +80,7 @@ export function Footer() {
 				</motion.div>
 
 				{/* Social Links */}
-				<div className="flex flex-wrap justify-center gap-8 md:gap-10 mb-16">
+				<div className="grid grid-cols-5 md:flex md:flex-wrap md:justify-center gap-6 md:gap-10 mb-16 place-items-center">
 					{socialLinks.map((social) => (
 						<motion.div key={social.label} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
 							<Link

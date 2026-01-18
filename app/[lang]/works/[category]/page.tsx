@@ -46,7 +46,7 @@ export default async function CategoryPage({ params }: LangPageWithCategoryProps
 	}
 
 	return (
-		<main className="bg-background pt-32 pb-20 md:pb-24 min-h-screen">
+		<main className="bg-background pt-32 pb-10 md:pb-16 min-h-screen">
 			{/* Header - renders immediately */}
 			<CategoryHeader categoryData={categoryData} lang={lang as Language} />
 
@@ -60,7 +60,7 @@ export default async function CategoryPage({ params }: LangPageWithCategoryProps
 			</section>
 
 			{/* Bottom Divider */}
-			<div className="h-px bg-foreground/10 mt-16 max-w-xs mx-auto" />
+			<div className="h-px bg-foreground/10 mt-10 max-w-xs mx-auto" />
 		</main>
 	);
 }
