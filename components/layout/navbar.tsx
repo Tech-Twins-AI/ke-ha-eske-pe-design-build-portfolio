@@ -151,7 +151,7 @@ function NavLink({ href, children, onClick }: NavLinkProps) {
 		<Link
 			href={href}
 			onClick={onClick}
-			className="relative group overflow-hidden block h-5 font-semibold"
+			className="relative group overflow-hidden block h-4 font-semibold"
 		>
 			<span className="block transition-transform duration-300 group-hover:-translate-y-full">
 				{children}
