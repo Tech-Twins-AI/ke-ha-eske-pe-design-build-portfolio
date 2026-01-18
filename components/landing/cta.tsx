@@ -3,8 +3,13 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { useLanguage } from "@/lib/language-context";
+import { useTranslations } from "@/lib/translations";
 
 export function CTA() {
+	const currentLang = useLanguage();
+	const t = useTranslations();
+
 	return (
 		<section className="py-10 md:py-24 px-6 bg-background flex flex-col items-center text-center">
 			<motion.div
@@ -15,7 +20,7 @@ export function CTA() {
 			>
 				{/* Headline */}
 				<h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-10 max-w-2xl mx-auto uppercase leading-tight">
-					Ready to translate your vision into reality?
+					{t.cta.headline}
 				</h2>
 
 				{/* CTA Button */}
@@ -25,9 +30,9 @@ export function CTA() {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6, delay: 0.3 }}
 				>
-					<Link href="/contact">
+					<Link href={`/${currentLang}/contact`}>
 						<Button variant="primary" showArrow size="lg">
-							Start Your Project
+							{t.cta.button}
 						</Button>
 					</Link>
 				</motion.div>

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import { useTranslations } from "@/lib/translations";
 import buildBgUrl from "@/public/build-hero-bg.webp";
 import designBgUrl from "@/public/design-hero-bg.webp";
 
@@ -21,6 +22,8 @@ const contentVariants = {
 };
 
 export function Hero() {
+	const t = useTranslations();
+
 	return (
 		<section className="h-screen flex flex-col md:flex-row relative">
 			{/* Left Side: THE BEGINNING (Design) */}
@@ -58,11 +61,13 @@ export function Hero() {
 					className="z-10 text-center"
 				>
 					<div className="font-amharic text-secondary text-lg md:text-xl mb-1 tracking-widest opacity-60">
-						ከሀ
+						{t.hero.beginningLabel}
 					</div>
-					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">THE BEGINNING</h1>
+					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+						{t.hero.beginningTitle}
+					</h1>
 					<p className="text-lg md:text-xl max-w-sm mx-auto leading-relaxed text-secondary/80">
-						Design. Vision. The first line drawn on the map of Addis Ababa.
+						{t.hero.beginningDescription}
 					</p>
 				</motion.div>
 			</div>
@@ -101,11 +106,11 @@ export function Hero() {
 					className="z-10 text-center flex flex-col items-center"
 				>
 					<div className="font-amharic text-primary-foreground/40 text-lg md:text-xl mb-1 tracking-widest uppercase">
-						እስከ ፐ
+						{t.hero.endLabel}
 					</div>
-					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">THE END</h1>
+					<h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">{t.hero.endTitle}</h1>
 					<p className="text-lg md:text-xl max-w-sm mx-auto leading-relaxed text-primary-foreground/70">
-						Build. Reality. The final brick cemented with precision.
+						{t.hero.endDescription}
 					</p>
 				</motion.div>
 			</div>

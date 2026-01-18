@@ -9,18 +9,22 @@ import {
 	Works,
 } from "@/components/landing";
 import { TestimonialsSkeleton } from "@/components/landing/testimonials-skeloton";
+import type { Language } from "@/sanity/lib/languages";
+import type { LangPageProps } from "@/types";
 
-export default function Home() {
+export default async function Home({ params }: LangPageProps) {
+	const { lang } = await params;
+
 	return (
 		<main>
 			<Hero />
 			<Philosophy />
 			<AtmosphericDivider />
 			<Suspense fallback={<CategoryShowcaseSkeleton />}>
-				<Works />
+				<Works lang={lang as Language} />
 			</Suspense>
 			<Suspense fallback={<TestimonialsSkeleton />}>
-				<Testimonials />
+				<Testimonials lang={lang as Language} />
 			</Suspense>
 			<CTA />
 		</main>

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { PROJECT_CATEGORIES } from "@/lib/constants";
+import { useTranslations } from "@/lib/translations";
 import type { FEATURED_PROJECTS_QUERYResult } from "@/sanity/types";
 import { CategoryCard } from "./category-card";
 
@@ -11,6 +12,8 @@ interface CategoryShowcaseProps {
 }
 
 export function CategoryShowcase({ featuredProjects, projectCounts }: CategoryShowcaseProps) {
+	const t = useTranslations();
+
 	// Map featured projects to categories
 	const getCategoryImage = (categoryId: string) => {
 		const project = featuredProjects.find((p) => p.category === categoryId);
@@ -28,12 +31,9 @@ export function CategoryShowcase({ featuredProjects, projectCounts }: CategorySh
 					className="text-center mb-16"
 				>
 					<h2 className="text-3xl md:text-5xl font-bold tracking-wide-lg mb-6 uppercase leading-relaxed">
-						OUR WORK
+						{t.works.title}
 					</h2>
-					<p className="text-secondary text-lg max-w-2xl mx-auto mb-8">
-						From initial design to final finishing. We deliver complete, end-to-end building
-						solutions. Browse our work by category.
-					</p>
+					<p className="text-secondary text-lg max-w-2xl mx-auto mb-8">{t.works.description}</p>
 					<div className="w-12 h-[2px] bg-foreground mx-auto" />
 				</motion.div>
 

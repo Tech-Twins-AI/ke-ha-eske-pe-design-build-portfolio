@@ -3,9 +3,11 @@
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
+import { useTranslations } from "@/lib/translations";
 
 export function AtmosphericDivider() {
 	const containerRef = useRef<HTMLElement>(null);
+	const t = useTranslations();
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
 		offset: ["start end", "end start"],
@@ -49,11 +51,11 @@ export function AtmosphericDivider() {
 					transition={{ duration: 1, ease: "easeOut" }}
 				>
 					<h2 className="text-primary-foreground text-4xl md:text-7xl font-bold tracking-[0.4em] uppercase mb-4">
-						Crafting Reality
+						{t.atmosphericDivider.title}
 					</h2>
 					<div className="w-24 h-px bg-primary-foreground/30 mx-auto mb-6" />
 					<p className="text-primary-foreground/60 text-xs md:text-sm tracking-wide-xl uppercase font-light">
-						Precision In Every Line
+						{t.atmosphericDivider.subtitle}
 					</p>
 				</motion.div>
 			</div>

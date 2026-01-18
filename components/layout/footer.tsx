@@ -3,6 +3,7 @@
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useTranslations } from "@/lib/translations";
 import { Brand } from "../brand";
 
 // TikTok icon (not available in lucide-react)
@@ -63,6 +64,7 @@ const socialLinks = [
 
 export function Footer() {
 	const currentYear = new Date().getFullYear();
+	const t = useTranslations();
 
 	return (
 		<footer className="bg-accent text-accent-foreground pt-10 pb-20 px-6">
@@ -78,7 +80,7 @@ export function Footer() {
 				</motion.div>
 
 				{/* Social Links */}
-				<div className="flex flex-wrap justify-center gap-8 md:gap-10 mb-16">
+				<div className="grid grid-cols-5 md:flex md:flex-wrap md:justify-center gap-6 md:gap-10 mb-16 place-items-center">
 					{socialLinks.map((social) => (
 						<motion.div key={social.label} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
 							<Link
@@ -96,9 +98,11 @@ export function Footer() {
 
 				{/* Copyright */}
 				<div className="text-center text-xs tracking-wide-lg uppercase">
-					<p className="mb-6 font-bold text-accent-foreground">KE HA ESKE PE © {currentYear}</p>
+					<p className="mb-6 font-bold text-accent-foreground">
+						{t.footer.company} © {currentYear}
+					</p>
 					<p className="text-gray-400 font-light max-w-xs mx-auto leading-loose">
-						Design in Addis Ababa. Built for Eternity.
+						{t.footer.tagline}
 					</p>
 				</div>
 			</div>

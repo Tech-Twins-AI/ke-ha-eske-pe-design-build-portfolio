@@ -1,0 +1,178 @@
+{
+	"nav": {
+		"work": "Work",
+		"about": "About",
+		"consult": "Consult"
+	},
+	"hero": {
+		"beginningLabel": "ከሀ",
+		"beginningTitle": "THE BEGINNING",
+		"beginningDescription": "Design. Vision. The first line drawn on the map of Addis Ababa.",
+		"endLabel": "እስከ ፐ",
+		"endTitle": "THE END",
+		"endDescription": "Build. Reality. The final brick cemented with precision."
+	},
+	"philosophy": {
+		"sectionLabel": "OUR PHILOSOPHY",
+		"title": "The Visionary Alphabet",
+		"description": "The name 'Ke Ha Eske Pe' (ከሀ እስከ ፐ) signifies the complete Amharic alphabet. It represents our core notion: bridging the gap between design and construction to ensure your vision remains uncompromised from the first letter to the last.",
+		"stats": {
+			"projects": "SUCCESSFUL\nPROJECTS",
+			"clients": "SATISFIED\nCLIENTS",
+			"experience": "YEARS\nEXPERIENCE"
+		},
+		"bridging": {
+			"title": "Bridging The Fragmentation",
+			"description": "In traditional projects, design and construction are often handled by separate entities. This fragmentation frequently leads to miscommunication, budget overruns, and undesired outputs that deviate from the original intent."
+		},
+		"accountability": {
+			"title": "Single-Point Accountability",
+			"description": "We serve as your single contract point. By overseeing everything from the initial design stage through heavy construction and final furnishing, we eliminate friction and guarantee the quality of the final result."
+		},
+		"paperToGround": {
+			"label": "From Paper To Ground",
+			"description": "Our primary mission is to ensure that every stroke on the blueprint is translated with absolute fidelity onto the physical site. We don't just design; we deliver the reality exactly as it was envisioned.",
+			"quote": "Ensuring what is on the paper is perfectly delivered on the ground."
+		}
+	},
+	"atmosphericDivider": {
+		"title": "Crafting Reality",
+		"subtitle": "Precision In Every Line"
+	},
+	"works": {
+		"title": "OUR WORK",
+		"description": "From initial design to final finishing. We deliver complete, end-to-end building solutions. Browse our work by category.",
+		"project": "Project",
+		"projects": "Projects",
+		"viewMore": "View More"
+	},
+	"testimonials": {
+		"title": "WHAT THEY SAY ABOUT US",
+		"dragHint": "Drag to explore"
+	},
+	"cta": {
+		"headline": "Ready to translate your vision into reality?",
+		"button": "Start Your Project"
+	},
+	"footer": {
+		"company": "KE HA ESKE PE",
+		"tagline": "Design in Addis Ababa. Built for Eternity."
+	},
+	"category": {
+		"backToWork": "Our Work"
+	},
+	"categories": {
+		"exterior": {
+			"label": "Exterior Designs",
+			"description": "Facade designs, outdoor landscaping, and external architectural elements."
+		},
+		"interior": {
+			"label": "Interior Designs",
+			"description": "Space planning, room layouts, and interior styling for residential and commercial spaces."
+		},
+		"construction": {
+			"label": "Construction",
+			"description": "New builds, structural work, and ground-up construction projects."
+		},
+		"finishing": {
+			"label": "Finishing Work",
+			"description": "Flooring, painting, trim work, and final installation details."
+		},
+		"renovation": {
+			"label": "Renovation",
+			"description": "Remodeling, restoration, and upgrades to existing buildings and spaces."
+		}
+	},
+	"common": {
+		"readMore": "Read more",
+		"readLess": "Read less"
+	},
+	"notFound": {
+		"title": "Page Not Found",
+		"description": "The page you're looking for doesn't exist or has been moved.",
+		"backHome": "Back to Home"
+	},
+	"about": {
+		"heroTitle": "A Little",
+		"heroTitleHighlight": "About Us",
+		"heroDescription": "The name 'Ke Ha Eske Pe' (ከሀ እስከ ፐ) signifies the complete Amharic alphabet. It represents our core notion: bridging the gap between design and construction to ensure your vision remains uncompromised from the first letter to the last.",
+		"mission": {
+			"title": "Our Mission",
+			"description": "To redefine the construction landscape in Ethiopia by providing a seamless, integrated design-build experience that prioritizes architectural integrity above all else."
+		},
+		"vision": {
+			"title": "Our Vision",
+			"description": "To become the benchmark for contemporary Ethiopian architecture, creating spaces that honor tradition while embracing modern engineering."
+		},
+		"coreValuesLabel": "Core Values",
+		"values": {
+			"precision": {
+				"title": "Precision",
+				"description": "In architecture, a single millimeter matters. We obsess over the details."
+			},
+			"integrity": {
+				"title": "Integrity",
+				"description": "What we promise in the 3D render is what we deliver on the ground."
+			},
+			"innovation": {
+				"title": "Innovation",
+				"description": "Utilizing modern tech to help clients visualize before the first stone."
+			},
+			"accountability": {
+				"title": "Accountability",
+				"description": "We take full responsibility from the first sketch to the final key handover."
+			}
+		},
+		"servicesLabel": "Our Services",
+		"servicesTitle": "Full Spectrum Solutions",
+		"services": {
+			"architectural": {
+				"title": "Architectural Design",
+				"description": "From conceptual sketches to detailed blueprints, we design buildings that breathe."
+			},
+			"interior": {
+				"title": "Interior Architecture",
+				"description": "Crafting atmospheric interiors that blend functionality with high-end aesthetics."
+			},
+			"construction": {
+				"title": "General Construction",
+				"description": "Heavy construction managed with structural rigor and expert craftsmanship."
+			},
+			"management": {
+				"title": "Project Management",
+				"description": "Full lifecycle oversight ensuring timelines and budgets are strictly respected."
+			}
+		},
+		"expertisePhase": "Expertise Phase",
+		"leadershipLabel": "Leadership",
+		"leadershipTitle": "The Architect"
+	},
+	"metadata": {
+		"title": "Ke Ha Eske Pe Design And Build",
+		"description": "Ke Ha Eske Pe Design and Build - From design to construction, we deliver your vision with precision."
+	},
+	"contact": {
+		"sectionLabel": "Get In Touch",
+		"title": "Let's Build",
+		"titleHighlight": "Together",
+		"labels": {
+			"phone": "Phone",
+			"email": "Email",
+			"location": "Location"
+		},
+		"form": {
+			"name": "Your Name",
+			"namePlaceholder": "John Doe",
+			"email": "Email Address",
+			"emailPlaceholder": "john@example.com",
+			"message": "Tell us about your vision",
+			"messagePlaceholder": "I need help with...",
+			"submit": "Send Message"
+		},
+		"success": {
+			"title": "Message Sent Successfully!",
+			"description": "We'll get back to you as soon as possible.",
+			"sendAnother": "Send another message"
+		}
+	}
+}

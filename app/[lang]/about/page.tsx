@@ -15,6 +15,7 @@ import {
 import { motion } from "motion/react";
 import Image from "next/image";
 import { CTA } from "@/components/landing/cta";
+import { useTranslations } from "@/lib/translations";
 
 const architect = {
 	name: "Nebiat Sentayehu",
@@ -23,53 +24,8 @@ const architect = {
 		"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
 };
 
-const coreValues = [
-	{
-		icon: Ruler,
-		title: "Precision",
-		description: "In architecture, a single millimeter matters. We obsess over the details.",
-	},
-	{
-		icon: ShieldCheck,
-		title: "Integrity",
-		description: "What we promise in the 3D render is what we deliver on the ground.",
-	},
-	{
-		icon: Lightbulb,
-		title: "Innovation",
-		description: "Utilizing modern tech to help clients visualize before the first stone.",
-	},
-	{
-		icon: Briefcase,
-		title: "Accountability",
-		description: "We take full responsibility from the first sketch to the final key handover.",
-	},
-];
-
-const services = [
-	{
-		icon: Compass,
-		title: "Architectural Design",
-		description:
-			"From conceptual sketches to detailed blueprints, we design buildings that breathe.",
-	},
-	{
-		icon: Home,
-		title: "Interior Architecture",
-		description:
-			"Crafting atmospheric interiors that blend functionality with high-end aesthetics.",
-	},
-	{
-		icon: HardHat,
-		title: "General Construction",
-		description: "Heavy construction managed with structural rigor and expert craftsmanship.",
-	},
-	{
-		icon: ClipboardList,
-		title: "Project Management",
-		description: "Full lifecycle oversight ensuring timelines and budgets are strictly respected.",
-	},
-];
+const valueIcons = [Ruler, ShieldCheck, Lightbulb, Briefcase];
+const serviceIcons = [Compass, Home, HardHat, ClipboardList];
 
 // Animation variants for consistent fade + slide-up
 const fadeUp = {
@@ -90,6 +46,54 @@ const staggerContainer = {
 };
 
 export default function AboutPage() {
+	const t = useTranslations();
+
+	const coreValues = [
+		{
+			icon: valueIcons[0],
+			title: t.about.values.precision.title,
+			description: t.about.values.precision.description,
+		},
+		{
+			icon: valueIcons[1],
+			title: t.about.values.integrity.title,
+			description: t.about.values.integrity.description,
+		},
+		{
+			icon: valueIcons[2],
+			title: t.about.values.innovation.title,
+			description: t.about.values.innovation.description,
+		},
+		{
+			icon: valueIcons[3],
+			title: t.about.values.accountability.title,
+			description: t.about.values.accountability.description,
+		},
+	];
+
+	const services = [
+		{
+			icon: serviceIcons[0],
+			title: t.about.services.architectural.title,
+			description: t.about.services.architectural.description,
+		},
+		{
+			icon: serviceIcons[1],
+			title: t.about.services.interior.title,
+			description: t.about.services.interior.description,
+		},
+		{
+			icon: serviceIcons[2],
+			title: t.about.services.construction.title,
+			description: t.about.services.construction.description,
+		},
+		{
+			icon: serviceIcons[3],
+			title: t.about.services.management.title,
+			description: t.about.services.management.description,
+		},
+	];
+
 	return (
 		<main className="bg-background pt-32 pb-20 md:pb-24">
 			<div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -104,7 +108,8 @@ export default function AboutPage() {
 						variants={fadeUp}
 						className="text-5xl md:text-6xl font-bold tracking-tighter uppercase mb-8"
 					>
-						A Little <span className="block text-secondary">About Us</span>
+						{t.about.heroTitle}{" "}
+						<span className="block text-secondary">{t.about.heroTitleHighlight}</span>
 					</motion.h1>
 					<motion.div
 						initial={{ scaleX: 0 }}
@@ -116,9 +121,7 @@ export default function AboutPage() {
 						variants={fadeUp}
 						className="max-w-2xl mx-auto text-secondary text-xl leading-relaxed"
 					>
-						The name &apos;Ke Ha Eske Pe&apos; (ከሀ እስከ ፐ) signifies the complete Amharic alphabet.
-						It represents our core notion: bridging the gap between design and construction to
-						ensure your vision remains uncompromised from the first letter to the last.
+						{t.about.heroDescription}
 					</motion.p>
 				</motion.div>
 
@@ -135,12 +138,11 @@ export default function AboutPage() {
 						<div className="flex items-center gap-4">
 							<Target size={28} strokeWidth={1.5} />
 							<h3 className="text-2xl md:text-3xl font-bold tracking-tighter uppercase">
-								Our Mission
+								{t.about.mission.title}
 							</h3>
 						</div>
 						<p className="text-lg md:text-xl text-secondary leading-relaxed">
-							To redefine the construction landscape in Ethiopia by providing a seamless, integrated
-							design-build experience that prioritizes architectural integrity above all else.
+							{t.about.mission.description}
 						</p>
 					</motion.div>
 
@@ -149,12 +151,11 @@ export default function AboutPage() {
 						<div className="flex items-center gap-4">
 							<Eye size={28} strokeWidth={1.5} />
 							<h3 className="text-2xl md:text-3xl font-bold tracking-tighter uppercase">
-								Our Vision
+								{t.about.vision.title}
 							</h3>
 						</div>
 						<p className="text-lg md:text-xl text-secondary leading-relaxed">
-							To become the benchmark for contemporary Ethiopian architecture, creating spaces that
-							honor tradition while embracing modern engineering.
+							{t.about.vision.description}
 						</p>
 					</motion.div>
 				</motion.div>
@@ -172,7 +173,7 @@ export default function AboutPage() {
 							variants={fadeUp}
 							className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold"
 						>
-							Core Values
+							{t.about.coreValuesLabel}
 						</motion.p>
 						<motion.div
 							initial={{ scaleX: 0 }}
@@ -223,13 +224,13 @@ export default function AboutPage() {
 							variants={fadeUp}
 							className="text-label tracking-wide-xl uppercase text-secondary mb-6 font-bold"
 						>
-							Our Services
+							{t.about.servicesLabel}
 						</motion.p>
 						<motion.h3
 							variants={fadeUp}
 							className="text-4xl md:text-5xl font-bold tracking-tighter leading-tight uppercase"
 						>
-							Full Spectrum Solutions
+							{t.about.servicesTitle}
 						</motion.h3>
 					</motion.div>
 
@@ -263,7 +264,7 @@ export default function AboutPage() {
 
 								<div className="mt-10 md:mt-12 flex items-center gap-4 text-2xs tracking-wide-lg font-bold uppercase opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
 									<div className="w-8 h-px bg-foreground" />
-									Expertise Phase
+									{t.about.expertisePhase}
 								</div>
 							</motion.div>
 						))}
@@ -282,10 +283,10 @@ export default function AboutPage() {
 				<div className="max-w-7xl mx-auto px-6 md:px-12">
 					<motion.div variants={fadeUp} className="text-center mb-24">
 						<p className="text-sm tracking-wide-sm uppercase text-muted-foreground mb-6 font-semibold">
-							Leadership
+							{t.about.leadershipLabel}
 						</p>
 						<h2 className="text-4xl md:text-5xl font-bold tracking-widest uppercase">
-							The Architect
+							{t.about.leadershipTitle}
 						</h2>
 					</motion.div>
 

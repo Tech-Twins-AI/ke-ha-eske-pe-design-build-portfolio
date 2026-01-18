@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import type { ProjectCategory } from "@/lib/constants";
+import { useTranslations } from "@/lib/translations";
+import type { WithLanguage } from "@/types";
 
 const fadeUp = {
 	hidden: { opacity: 0, y: 20 },
@@ -22,11 +24,14 @@ const staggerContainer = {
 	},
 };
 
-interface CategoryHeaderProps {
+interface CategoryHeaderProps extends WithLanguage {
 	categoryData: ProjectCategory;
 }
 
-export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
+export function CategoryHeader({ categoryData, lang }: CategoryHeaderProps) {
+	const t = useTranslations();
+	const categoryTranslation = t.categories[categoryData.id as keyof typeof t.categories];
+
 	return (
 		<motion.section
 			initial="hidden"
@@ -38,11 +43,11 @@ export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
 				{/* Breadcrumb */}
 				<motion.div variants={fadeUp} className="mb-8">
 					<Link
-						href="/#work"
+						href={`/${lang}/#work`}
 						className="text-label tracking-wide-xl uppercase text-secondary font-bold hover:text-foreground transition-colors inline-flex items-center gap-2"
 					>
 						<ArrowLeft size={16} />
-						<span>Our Work</span>
+						<span>{t.category.backToWork}</span>
 					</Link>
 				</motion.div>
 
@@ -51,12 +56,12 @@ export function CategoryHeader({ categoryData }: CategoryHeaderProps) {
 					variants={fadeUp}
 					className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-6"
 				>
-					{categoryData.label}
+					{categoryTranslation.label}
 				</motion.h1>
 
 				{/* Description */}
 				<motion.p variants={fadeUp} className="text-xl text-secondary max-w-2xl leading-relaxed">
-					{categoryData.description}
+					{categoryTranslation.description}
 				</motion.p>
 
 				{/* Divider */}

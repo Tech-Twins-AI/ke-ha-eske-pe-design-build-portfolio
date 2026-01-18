@@ -39,12 +39,13 @@
 				"value": {
 					"type": "string"
 				},
-				"optional": false
+				"optional": true
 			},
 			"role": {
 				"type": "objectAttribute",
 				"value": {
-					"type": "string"
+					"type": "inline",
+					"name": "internationalizedArrayString"
 				},
 				"optional": true
 			},
@@ -58,9 +59,10 @@
 			"quote": {
 				"type": "objectAttribute",
 				"value": {
-					"type": "string"
+					"type": "inline",
+					"name": "internationalizedArrayText"
 				},
-				"optional": false
+				"optional": true
 			},
 			"avatar": {
 				"type": "objectAttribute",
@@ -151,28 +153,28 @@
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"bottom": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"left": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"right": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				}
 			}
 		}
@@ -195,28 +197,72 @@
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"y": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"height": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"width": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
+				}
+			}
+		}
+	},
+	{
+		"name": "internationalizedArrayText",
+		"type": "type",
+		"value": {
+			"type": "array",
+			"of": {
+				"type": "object",
+				"attributes": {
+					"_key": {
+						"type": "objectAttribute",
+						"value": {
+							"type": "string"
+						}
+					}
+				},
+				"rest": {
+					"type": "inline",
+					"name": "internationalizedArrayTextValue"
+				}
+			}
+		}
+	},
+	{
+		"name": "internationalizedArrayString",
+		"type": "type",
+		"value": {
+			"type": "array",
+			"of": {
+				"type": "object",
+				"attributes": {
+					"_key": {
+						"type": "objectAttribute",
+						"value": {
+							"type": "string"
+						}
+					}
+				},
+				"rest": {
+					"type": "inline",
+					"name": "internationalizedArrayStringValue"
 				}
 			}
 		}
@@ -259,9 +305,10 @@
 			"title": {
 				"type": "objectAttribute",
 				"value": {
-					"type": "string"
+					"type": "inline",
+					"name": "internationalizedArrayString"
 				},
-				"optional": false
+				"optional": true
 			},
 			"slug": {
 				"type": "objectAttribute",
@@ -269,7 +316,7 @@
 					"type": "inline",
 					"name": "slug"
 				},
-				"optional": false
+				"optional": true
 			},
 			"category": {
 				"type": "objectAttribute",
@@ -298,7 +345,15 @@
 						}
 					]
 				},
-				"optional": false
+				"optional": true
+			},
+			"location": {
+				"type": "objectAttribute",
+				"value": {
+					"type": "inline",
+					"name": "internationalizedArrayString"
+				},
+				"optional": true
 			},
 			"isFeatured": {
 				"type": "objectAttribute",
@@ -374,7 +429,7 @@
 						}
 					}
 				},
-				"optional": false
+				"optional": true
 			}
 		}
 	},
@@ -396,9 +451,55 @@
 					"value": {
 						"type": "string"
 					},
-					"optional": false
+					"optional": true
 				},
 				"source": {
+					"type": "objectAttribute",
+					"value": {
+						"type": "string"
+					},
+					"optional": true
+				}
+			}
+		}
+	},
+	{
+		"name": "internationalizedArrayTextValue",
+		"type": "type",
+		"value": {
+			"type": "object",
+			"attributes": {
+				"_type": {
+					"type": "objectAttribute",
+					"value": {
+						"type": "string",
+						"value": "internationalizedArrayTextValue"
+					}
+				},
+				"value": {
+					"type": "objectAttribute",
+					"value": {
+						"type": "string"
+					},
+					"optional": true
+				}
+			}
+		}
+	},
+	{
+		"name": "internationalizedArrayStringValue",
+		"type": "type",
+		"value": {
+			"type": "object",
+			"attributes": {
+				"_type": {
+					"type": "objectAttribute",
+					"value": {
+						"type": "string",
+						"value": "internationalizedArrayStringValue"
+					}
+				},
+				"value": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "string"
@@ -542,21 +643,21 @@
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"width": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				},
 				"aspectRatio": {
 					"type": "objectAttribute",
 					"value": {
 						"type": "number"
 					},
-					"optional": false
+					"optional": true
 				}
 			}
 		}

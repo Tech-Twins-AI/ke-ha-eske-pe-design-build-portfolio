@@ -8,6 +8,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import { loadMoreProjects } from "@/app/actions";
 import { Button } from "@/components/ui";
+import { useLanguage } from "@/lib/language-context";
 import { type Project, ProjectCard } from "./project-card";
 
 interface ProjectsGridClientProps {
@@ -21,6 +22,7 @@ export function ProjectsGridClient({
 	totalCount,
 	category,
 }: ProjectsGridClientProps) {
+	const lang = useLanguage();
 	const [projects, setProjects] = useState<Project[]>(initialProjects);
 	const [isPending, startTransition] = useTransition();
 	const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string } | null>(null);
@@ -34,7 +36,12 @@ export function ProjectsGridClient({
 		if (!lastProject) return;
 
 		startTransition(async () => {
-			const newProjects = await loadMoreProjects(category, lastProject._createdAt, lastProject._id);
+			const newProjects = await loadMoreProjects(
+				category,
+				lastProject._createdAt,
+				lastProject._id,
+				lang,
+			);
 			setProjects((prev) => [...prev, ...newProjects]);
 		});
 	};

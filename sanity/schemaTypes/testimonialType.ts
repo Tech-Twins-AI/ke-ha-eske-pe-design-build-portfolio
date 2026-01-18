@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import type { InternationalizedArrayString } from "@/sanity/types";
 
 export const testimonialType = defineType({
 	name: "testimonial",
@@ -8,27 +9,26 @@ export const testimonialType = defineType({
 		defineField({
 			name: "name",
 			title: "Client Name",
-			type: "string",
+			type: "internationalizedArrayString",
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
 			name: "role",
 			title: "Role / Title",
-			type: "string",
+			type: "internationalizedArrayString",
 			description: "e.g., Owner, CEO, Project Manager",
 		}),
 		defineField({
 			name: "company",
 			title: "Company / Organization",
-			type: "string",
+			type: "internationalizedArrayString",
 			description: "Business or organization name (optional)",
 		}),
 		defineField({
 			name: "quote",
 			title: "Testimonial Quote",
-			type: "text",
-			rows: 4,
-			validation: (rule) => rule.required().min(30),
+			type: "internationalizedArrayText",
+			validation: (rule) => rule.required(),
 		}),
 		defineField({
 			name: "avatar",
@@ -36,13 +36,24 @@ export const testimonialType = defineType({
 			type: "image",
 			options: { hotspot: true },
 			description: "Optional profile photo",
-		})
+		}),
 	],
 	preview: {
 		select: {
-			title: "name",
-			subtitle: "company",
+			name: "name",
+			company: "company",
 			media: "avatar",
+		},
+		prepare({ name, company, media }) {
+			return {
+				title:
+					(name as InternationalizedArrayString)?.find((n) => n._key === "en")
+						?.value || "Untitled",
+				subtitle: (company as InternationalizedArrayString)?.find(
+					(c) => c._key === "en",
+				)?.value,
+				media,
+			};
 		},
 	},
 });

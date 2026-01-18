@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { TestimonialCard } from "@/components/landing/testimonial-card";
+import { useTranslations } from "@/lib/translations";
 import type { TESTIMONIALS_QUERYResult } from "@/sanity/types";
 
 interface TestimonialsCarouselProps {
@@ -13,6 +14,7 @@ interface TestimonialsCarouselProps {
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
 	const [width, setWidth] = useState(0);
 	const carousel = useRef<HTMLDivElement>(null);
+	const t = useTranslations();
 
 	useEffect(() => {
 		if (carousel.current) {
@@ -21,7 +23,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 	}, []);
 
 	return (
-		<section className="py-10 md:py-24 max-w-7xl mx-auto overflow-hidden">
+		<section className="pt-6 pb-10 md:pt-12 md:pb-24 max-w-7xl mx-auto overflow-hidden">
 			{/* Header */}
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
@@ -31,7 +33,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 				className="text-center mb-16 md:mb-20 px-6 md:px-12"
 			>
 				<h2 className="text-3xl md:text-5xl font-bold tracking-wide-lg uppercase">
-					WHAT THEY SAY ABOUT US
+					{t.testimonials.title}
 				</h2>
 				<div className="w-12 h-[2px] bg-foreground mx-auto mt-8" />
 			</motion.div>
@@ -97,7 +99,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
 					className="text-center text-sm text-secondary mt-8 tracking-widest uppercase flex items-center justify-center gap-2"
 				>
 					<ArrowLeft size={14} />
-					<span>Drag to explore</span>
+					<span>{t.testimonials.dragHint}</span>
 					<ArrowRight size={14} />
 				</motion.div>
 			</div>
